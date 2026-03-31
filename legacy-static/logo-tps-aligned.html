@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piscinas Sin Fronteras — Logo · The Pool Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:   #009EDB;
+            --accent:    #00C3FF;
+            --dark:      #0f172a;
+            --surface:   #1e293b;
+            --border:    rgba(255,255,255,0.09);
+            --text:      #f8fafc;
+            --muted:     #94a3b8;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            padding: 3.5rem 2rem 5rem;
+        }
+
+        /* ── Page header ─────────────────────────────────────────── */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .page-header .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            background: rgba(0,158,219,0.12);
+            border: 1px solid rgba(0,158,219,0.3);
+            border-radius: 999px;
+            padding: .35rem .9rem;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .page-header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -.02em;
+        }
+        .page-header p {
+            margin-top: .6rem;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        /* ── Color swatches ──────────────────────────────────────── */
+        .swatches {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: .75rem;
+            margin: 1.6rem auto 0;
+        }
+        .swatch {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: .35rem .75rem;
+            font-size: .75rem;
+            color: var(--muted);
+        }
+        .swatch-dot { width: 14px; height: 14px; border-radius: 50%; }
+
+        /* ── Showcase grid ───────────────────────────────────────── */
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: .8rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+            margin: 3rem 0 1.5rem;
+        }
+        .showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .logo-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            transition: border-color .3s, box-shadow .3s;
+        }
+        .logo-card:hover {
+            border-color: rgba(0,158,219,0.4);
+            box-shadow: 0 0 40px rgba(0,158,219,0.12);
+        }
+        .card-label {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+        .card-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .card-desc {
+            font-size: .82rem;
+            color: var(--muted);
+            text-align: center;
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        /* variant panels */
+        .variants {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+        .variant-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+        }
+        .panel-bg {
+            border-radius: 14px;
+            padding: 2rem 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .panel-bg.dark  { background: #09111f; border: 1px solid var(--border); }
+        .panel-bg.mid   { background: #1e293b; border: 1px solid var(--border); }
+        .panel-bg.light { background: #f0f6ff; border: 1px solid #dde8f5; }
+        .panel-bg.white { background: #ffffff; border: 1px solid #e2e8f0; }
+        .vl {
+            font-size: .68rem;
+            color: var(--muted);
+            letter-spacing: .05em;
+        }
+        .vl.dark-text { color: #64748b; }
+
+        /* icon-only row */
+        .icon-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ── Responsive ──────────────────────────────────────────── */
+        @media (max-width: 600px) {
+            .variants { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Page header ───────────────────────────────────────────────── -->
+<header class="page-header">
+    <div class="badge">
+        <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="#009EDB"/></svg>
+        Aligned with The Pool Scientist
+    </div>
+    <h1>Piscinas Sin Fronteras — Logo System</h1>
+    <p>Scientific Flask · Pool Waves · Atom Orbits · TPS Color Palette</p>
+
+    <div class="swatches">
+        <div class="swatch"><div class="swatch-dot" style="background:#009EDB"></div>#009EDB — TPS Cerulean</div>
+        <div class="swatch"><div class="swatch-dot" style="background:#00C3FF"></div>#00C3FF — Accent Blue</div>
+        <div class="swatch"><div class="swatch-dot" style="background:#0f172a;border:1px solid #334155"></div>#0f172a — Dark Navy</div>
+        <div class="swatch"><div class="swatch-dot" style="background:#ffffff;border:1px solid #cbd5e1"></div>#FFFFFF — White</div>
+    </div>
+</header>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     PRIMARY LOGO — HORIZONTAL
+════════════════════════════════════════════════════════════════ -->
+<p class="section-title">Primary Logo — Horizontal</p>
+
+<div class="showcase">
+<div class="logo-card">
+    <div class="card-label">Option A · Recommended</div>
+    <div class="card-name">Scientific Flask Wordmark</div>
+
+    <div class="variants">
+
+        <!-- DARK variant -->
+        <div class="variant-panel">
+            <div class="panel-bg dark">
+                <svg width="420" height="110" viewBox="0 0 420 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#009EDB"/>
+                            <stop offset="100%" stop-color="#00C3FF"/>
+                        </linearGradient>
+                        <linearGradient id="gWater" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#009EDB" stop-opacity="0.65"/>
+                            <stop offset="100%" stop-color="#05101e" stop-opacity="0.95"/>
+                        </linearGradient>
+                        <clipPath id="flaskA">
+                            <path d="M40 8 L60 8 L60 34 L88 82 Q88 100 50 100 Q12 100 12 82 L40 34 Z"/>
+                        </clipPath>
+                    </defs>
+
+                    <!-- ── Flask body ── -->
+                    <path d="M40 8 L60 8 L60 34 L88 82 Q88 100 50 100 Q12 100 12 82 L40 34 Z"
+                          fill="rgba(0,158,219,0.08)" stroke="url(#gA)" stroke-width="2.2" stroke-linejoin="round"/>
+                    <!-- Neck cap line -->
+                    <line x1="37" y1="8" x2="63" y2="8" stroke="url(#gA)" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Flask measurement notches -->
+                    <line x1="60" y1="20" x2="65" y2="20" stroke="#009EDB" stroke-width="1.4" stroke-linecap="round" opacity="0.55"/>
+                    <line x1="60" y1="27" x2="63" y2="27" stroke="#009EDB" stroke-width="1.1" stroke-linecap="round" opacity="0.4"/>
+
+                    <!-- ── Water fill ── -->
+                    <path d="M16 76 Q33 68 50 76 Q67 84 84 76 L88 82 Q88 100 50 100 Q12 100 12 82 Z"
+                          fill="url(#gWater)" clip-path="url(#flaskA)"/>
+                    <!-- Wave line 1 -->
+                    <path d="M15 75 Q33 67 50 75 Q67 83 85 75"
+                          fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.55" clip-path="url(#flaskA)"/>
+                    <!-- Wave line 2 -->
+                    <path d="M14 87 Q32 79 50 87 Q68 95 86 87"
+                          fill="none" stroke="#00C3FF" stroke-width="1.4" stroke-linecap="round" opacity="0.35" clip-path="url(#flaskA)"/>
+                    <!-- Bubbles -->
+                    <circle cx="32" cy="91" r="2.5" fill="white" opacity="0.25"/>
+                    <circle cx="50" cy="95" r="1.8" fill="white" opacity="0.2"/>
+                    <circle cx="66" cy="89" r="2" fill="white" opacity="0.18"/>
+
+                    <!-- ── Atom orbits ── -->
+                    <ellipse cx="50" cy="52" rx="47" ry="15" fill="none" stroke="url(#gA)"
+                             stroke-width="1.1" opacity="0.32" transform="rotate(35 50 52)"/>
+                    <ellipse cx="50" cy="52" rx="47" ry="15" fill="none" stroke="url(#gA)"
+                             stroke-width="1.1" opacity="0.32" transform="rotate(-35 50 52)"/>
+                    <!-- Nucleus -->
+                    <circle cx="50" cy="52" r="3.5" fill="url(#gA)" opacity="0.9"/>
+                    <!-- Electrons -->
+                    <circle cx="50" cy="37" r="3" fill="#00C3FF" opacity="0.9"/>
+                    <circle cx="92" cy="60" r="2.8" fill="#009EDB" opacity="0.85"/>
+                    <circle cx="8"  cy="44" r="2.8" fill="#00C3FF" opacity="0.85"/>
+
+                    <!-- ── Wordmark ── -->
+                    <text x="118" y="50" font-family="Outfit, sans-serif" font-weight="900"
+                          font-size="38" fill="white" letter-spacing="-1">PISCINAS</text>
+                    <text x="120" y="78" font-family="Outfit, sans-serif" font-weight="300"
+                          font-size="21" fill="url(#gA)" letter-spacing="5.5">sin fronteras</text>
+                    <!-- Thin rule -->
+                    <line x1="118" y1="86" x2="408" y2="86" stroke="rgba(0,195,255,0.22)" stroke-width="1"/>
+                    <!-- Sub-brand -->
+                    <text x="120" y="103" font-family="Inter, sans-serif" font-weight="400"
+                          font-size="10" fill="#64748b" letter-spacing="1.8">by THE POOL SCIENTIST  ·  Educación · Certificación · Comunidad</text>
+                </svg>
+            </div>
+            <div class="vl">Dark background</div>
+        </div>
+
+        <!-- LIGHT variant -->
+        <div class="variant-panel">
+            <div class="panel-bg white">
+                <svg width="420" height="110" viewBox="0 0 420 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gAL" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#009EDB"/>
+                            <stop offset="100%" stop-color="#00C3FF"/>
+                        </linearGradient>
+                        <linearGradient id="gWaterL" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#009EDB" stop-opacity="0.55"/>
+                            <stop offset="100%" stop-color="#0369a1" stop-opacity="0.85"/>
+                        </linearGradient>
+                        <clipPath id="flaskAL">
+                            <path d="M40 8 L60 8 L60 34 L88 82 Q88 100 50 100 Q12 100 12 82 L40 34 Z"/>
+                        </clipPath>
+                    </defs>
+                    <path d="M40 8 L60 8 L60 34 L88 82 Q88 100 50 100 Q12 100 12 82 L40 34 Z"
+                          fill="rgba(0,158,219,0.07)" stroke="url(#gAL)" stroke-width="2.2" stroke-linejoin="round"/>
+                    <line x1="37" y1="8" x2="63" y2="8" stroke="url(#gAL)" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="60" y1="20" x2="65" y2="20" stroke="#009EDB" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+                    <line x1="60" y1="27" x2="63" y2="27" stroke="#009EDB" stroke-width="1.1" stroke-linecap="round" opacity="0.35"/>
+                    <path d="M16 76 Q33 68 50 76 Q67 84 84 76 L88 82 Q88 100 50 100 Q12 100 12 82 Z"
+                          fill="url(#gWaterL)" clip-path="url(#flaskAL)"/>
+                    <path d="M15 75 Q33 67 50 75 Q67 83 85 75"
+                          fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.5" clip-path="url(#flaskAL)"/>
+                    <path d="M14 87 Q32 79 50 87 Q68 95 86 87"
+                          fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round" opacity="0.3" clip-path="url(#flaskAL)"/>
+                    <circle cx="32" cy="91" r="2.5" fill="white" opacity="0.3"/>
+                    <circle cx="50" cy="95" r="1.8" fill="white" opacity="0.22"/>
+                    <circle cx="66" cy="89" r="2"   fill="white" opacity="0.2"/>
+                    <ellipse cx="50" cy="52" rx="47" ry="15" fill="none" stroke="url(#gAL)"
+                             stroke-width="1.1" opacity="0.28" transform="rotate(35 50 52)"/>
+                    <ellipse cx="50" cy="52" rx="47" ry="15" fill="none" stroke="url(#gAL)"
+                             stroke-width="1.1" opacity="0.28" transform="rotate(-35 50 52)"/>
+                    <circle cx="50" cy="52" r="3.5" fill="url(#gAL)" opacity="0.9"/>
+                    <circle cx="50" cy="37" r="3"   fill="#00C3FF" opacity="0.9"/>
+                    <circle cx="92" cy="60" r="2.8" fill="#009EDB" opacity="0.85"/>
+                    <circle cx="8"  cy="44" r="2.8" fill="#00C3FF" opacity="0.85"/>
+
+                    <text x="118" y="50" font-family="Outfit, sans-serif" font-weight="900"
+                          font-size="38" fill="#0f172a" letter-spacing="-1">PISCINAS</text>
+                    <text x="120" y="78" font-family="Outfit, sans-serif" font-weight="300"
+                          font-size="21" fill="url(#gAL)" letter-spacing="5.5">sin fronteras</text>
+                    <line x1="118" y1="86" x2="408" y2="86" stroke="rgba(0,158,219,0.2)" stroke-width="1"/>
+                    <text x="120" y="103" font-family="Inter, sans-serif" font-weight="400"
+                          font-size="10" fill="#94a3b8" letter-spacing="1.8">by THE POOL SCIENTIST  ·  Educación · Certificación · Comunidad</text>
+                </svg>
+            </div>
+            <div class="vl dark-text">Light background</div>
+        </div>
+    </div>
+
+    <div class="card-desc">
+        A scientific Erlenmeyer flask — the universal symbol of chemistry and expertise — filled with pool waves and encircled by electron orbit rings. Directly connects the "Piscinas" water world to "The Pool Scientist" intellectual brand. Clean and versatile across all surfaces.
+    </div>
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     STACKED + COMPACT ICON VARIANTS
+════════════════════════════════════════════════════════════════ -->
+<p class="section-title">Stacked · App Icon · Social Media Badge</p>
+
+<div class="showcase">
+<div class="logo-card">
+    <div class="card-label">Secondary Formats</div>
+    <div class="card-name">Stacked & Icon Variants</div>
+
+    <div class="icon-row">
+
+        <!-- Stacked vertical -->
+        <div class="variant-panel">
+            <div class="panel-bg dark" style="padding:2rem 2.5rem;">
+                <svg width="140" height="160" viewBox="0 0 140 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#009EDB"/>
+                            <stop offset="100%" stop-color="#00C3FF"/>
+                        </linearGradient>
+                        <linearGradient id="gWB" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#009EDB" stop-opacity="0.6"/>
+                            <stop offset="100%" stop-color="#05101e" stop-opacity="0.95"/>
+                        </linearGradient>
+                        <clipPath id="flaskB">
+                            <path d="M58 8 L82 8 L82 34 L106 82 Q106 102 70 102 Q34 102 34 82 L58 34 Z"/>
+                        </clipPath>
+                    </defs>
+                    <!-- Flask -->
+                    <path d="M58 8 L82 8 L82 34 L106 82 Q106 102 70 102 Q34 102 34 82 L58 34 Z"
+                          fill="rgba(0,158,219,0.09)" stroke="url(#gB)" stroke-width="2.2" stroke-linejoin="round"/>
+                    <line x1="55" y1="8" x2="85" y2="8" stroke="url(#gB)" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="82" y1="20" x2="87" y2="20" stroke="#009EDB" stroke-width="1.4" opacity="0.5"/>
+                    <line x1="82" y1="27" x2="85" y2="27" stroke="#009EDB" stroke-width="1.1" opacity="0.35"/>
+                    <!-- Water -->
+                    <path d="M38 76 Q54 68 70 76 Q86 84 102 76 L106 82 Q106 102 70 102 Q34 102 34 82 Z"
+                          fill="url(#gWB)" clip-path="url(#flaskB)"/>
+                    <path d="M37 75 Q54 67 70 75 Q86 83 103 75"
+                          fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.5" clip-path="url(#flaskB)"/>
+                    <path d="M36 88 Q54 80 70 88 Q86 96 104 88"
+                          fill="none" stroke="#00C3FF" stroke-width="1.4" stroke-linecap="round" opacity="0.3" clip-path="url(#flaskB)"/>
+                    <!-- Orbits -->
+                    <ellipse cx="70" cy="52" rx="50" ry="16" fill="none" stroke="url(#gB)"
+                             stroke-width="1" opacity="0.3" transform="rotate(35 70 52)"/>
+                    <ellipse cx="70" cy="52" rx="50" ry="16" fill="none" stroke="url(#gB)"
+                             stroke-width="1" opacity="0.3" transform="rotate(-35 70 52)"/>
+                    <circle cx="70" cy="52" r="3.5" fill="url(#gB)" opacity="0.9"/>
+                    <circle cx="70" cy="36" r="3"   fill="#00C3FF" opacity="0.85"/>
+                    <circle cx="113" cy="60" r="2.5" fill="#009EDB" opacity="0.8"/>
+                    <circle cx="27"  cy="44" r="2.5" fill="#00C3FF" opacity="0.8"/>
+                    <!-- Wordmark below -->
+                    <text x="70" y="122" font-family="Outfit, sans-serif" font-weight="900"
+                          font-size="17" fill="white" text-anchor="middle" letter-spacing="-.3">PISCINAS</text>
+                    <text x="70" y="140" font-family="Outfit, sans-serif" font-weight="300"
+                          font-size="11" fill="url(#gB)" text-anchor="middle" letter-spacing="3">sin fronteras</text>
+                    <text x="70" y="156" font-family="Inter, sans-serif" font-size="8"
+                          fill="#475569" text-anchor="middle" letter-spacing="1">by THE POOL SCIENTIST</text>
+                </svg>
+            </div>
+            <div class="vl">Stacked vertical</div>
+        </div>
+
+        <!-- App icon square -->
+        <div class="variant-panel">
+            <div class="panel-bg dark" style="padding:1.5rem;">
+                <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gIC" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#009EDB"/>
+                            <stop offset="100%" stop-color="#00C3FF"/>
+                        </linearGradient>
+                        <linearGradient id="gBG" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#0d1b2e"/>
+                            <stop offset="100%" stop-color="#1e293b"/>
+                        </linearGradient>
+                        <linearGradient id="gWIC" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#009EDB" stop-opacity="0.65"/>
+                            <stop offset="100%" stop-color="#0b1829" stop-opacity="0.95"/>
+                        </linearGradient>
+                        <clipPath id="flaskIC">
+                            <path d="M43 14 L67 14 L67 36 L88 74 Q88 90 55 90 Q22 90 22 74 L43 36 Z"/>
+                        </clipPath>
+                    </defs>
+                    <!-- Rounded square bg -->
+                    <rect width="110" height="110" rx="26" fill="url(#gBG)"/>
+                    <!-- Flask -->
+                    <path d="M43 14 L67 14 L67 36 L88 74 Q88 90 55 90 Q22 90 22 74 L43 36 Z"
+                          fill="rgba(0,158,219,0.1)" stroke="url(#gIC)" stroke-width="2" stroke-linejoin="round"/>
+                    <line x1="40" y1="14" x2="70" y2="14" stroke="url(#gIC)" stroke-width="2.8" stroke-linecap="round"/>
+                    <!-- Water -->
+                    <path d="M26 68 Q40 61 55 68 Q70 75 84 68 L88 74 Q88 90 55 90 Q22 90 22 74 Z"
+                          fill="url(#gWIC)" clip-path="url(#flaskIC)"/>
+                    <path d="M25 67 Q40 60 55 67 Q70 74 85 67"
+                          fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.5" clip-path="url(#flaskIC)"/>
+                    <!-- Orbits -->
+                    <ellipse cx="55" cy="46" rx="40" ry="13" fill="none" stroke="url(#gIC)"
+                             stroke-width="1" opacity="0.3" transform="rotate(35 55 46)"/>
+                    <ellipse cx="55" cy="46" rx="40" ry="13" fill="none" stroke="url(#gIC)"
+                             stroke-width="1" opacity="0.3" transform="rotate(-35 55 46)"/>
+                    <circle cx="55" cy="46" r="3" fill="url(#gIC)" opacity="0.9"/>
+                    <circle cx="55" cy="33" r="2.5" fill="#00C3FF" opacity="0.85"/>
+                    <circle cx="91" cy="53" r="2.2" fill="#009EDB" opacity="0.8"/>
+                    <circle cx="19" cy="39" r="2.2" fill="#00C3FF" opacity="0.8"/>
+                </svg>
+            </div>
+            <div class="vl">App icon (rounded square)</div>
+        </div>
+
+        <!-- Social media circle -->
+        <div class="variant-panel">
+            <div class="panel-bg dark" style="padding:1.5rem;">
+                <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gSM" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#009EDB"/>
+                            <stop offset="100%" stop-color="#00C3FF"/>
+                        </linearGradient>
+                        <linearGradient id="gBGSM" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#0d1b2e"/>
+                            <stop offset="100%" stop-color="#1e293b"/>
+                        </linearGradient>
+                        <linearGradient id="gWSM" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#009EDB" stop-opacity="0.65"/>
+                            <stop offset="100%" stop-color="#0b1829" stop-opacity="0.95"/>
+                        </linearGradient>
+                        <clipPath id="flaskSM">
+                            <path d="M43 14 L67 14 L67 36 L88 74 Q88 90 55 90 Q22 90 22 74 L43 36 Z"/>
+                        </clipPath>
+                    </defs>
+                    <!-- Circle bg -->
+                    <circle cx="55" cy="55" r="55" fill="url(#gBGSM)"/>
+                    <!-- Flask -->
+                    <path d="M43 14 L67 14 L67 36 L88 74 Q88 90 55 90 Q22 90 22 74 L43 36 Z"
+                          fill="rgba(0,158,219,0.1)" stroke="url(#gSM)" stroke-width="2" stroke-linejoin="round"/>
+                    <line x1="40" y1="14" x2="70" y2="14" stroke="url(#gSM)" stroke-width="2.8" stroke-linecap="round"/>
+                    <!-- Water -->
+                    <path d="M26 68 Q40 61 55 68 Q70 75 84 68 L88 74 Q88 90 55 90 Q22 90 22 74 Z"
+                          fill="url(#gWSM)" clip-path="url(#flaskSM)"/>
+                    <path d="M25 67 Q40 60 55 67 Q70 74 85 67"
+                          fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.5" clip-path="url(#flaskSM)"/>
+                    <!-- Orbits -->
+                    <ellipse cx="55" cy="46" rx="40" ry="13" fill="none" stroke="url(#gSM)"
+                             stroke-width="1" opacity="0.3" transform="rotate(35 55 46)"/>
+                    <ellipse cx="55" cy="46" rx="40" ry="13" fill="none" stroke="url(#gSM)"
+                             stroke-width="1" opacity="0.3" transform="rotate(-35 55 46)"/>
+                    <circle cx="55" cy="46" r="3" fill="url(#gSM)" opacity="0.9"/>
+                    <circle cx="55" cy="33" r="2.5" fill="#00C3FF" opacity="0.85"/>
+                    <circle cx="91" cy="53" r="2.2" fill="#009EDB" opacity="0.8"/>
+                    <circle cx="19" cy="39" r="2.2" fill="#00C3FF" opacity="0.8"/>
+                </svg>
+            </div>
+            <div class="vl">Social media profile</div>
+        </div>
+
+        <!-- PSF TPS badge -->
+        <div class="variant-panel">
+            <div class="panel-bg dark" style="padding:1.5rem 2rem;">
+                <svg width="120" height="138" viewBox="0 0 120 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gBD" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#009EDB"/>
+                            <stop offset="100%" stop-color="#00C3FF"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Hexagon badge -->
+                    <polygon points="60,6 104,30 104,78 60,102 16,78 16,30"
+                             fill="rgba(0,158,219,0.1)" stroke="url(#gBD)" stroke-width="2"/>
+                    <!-- Inner flask icon (mini, centered) -->
+                    <!-- Flask mini -->
+                    <path d="M51 26 L69 26 L69 42 L82 66 Q82 76 60 76 Q38 76 38 66 L51 42 Z"
+                          fill="rgba(0,158,219,0.12)" stroke="url(#gBD)" stroke-width="1.6" stroke-linejoin="round"/>
+                    <line x1="49" y1="26" x2="71" y2="26" stroke="url(#gBD)" stroke-width="2.2" stroke-linecap="round"/>
+                    <!-- Water in mini flask -->
+                    <path d="M41 62 Q50 57 60 62 Q70 67 79 62 L82 66 Q82 76 60 76 Q38 76 38 66 Z"
+                          fill="#009EDB" opacity="0.5"/>
+                    <path d="M41 61 Q50 56 60 61 Q70 66 79 61"
+                          fill="none" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+                    <!-- Orbit mini -->
+                    <ellipse cx="60" cy="48" rx="28" ry="9" fill="none" stroke="url(#gBD)"
+                             stroke-width="0.9" opacity="0.35" transform="rotate(35 60 48)"/>
+                    <ellipse cx="60" cy="48" rx="28" ry="9" fill="none" stroke="url(#gBD)"
+                             stroke-width="0.9" opacity="0.35" transform="rotate(-35 60 48)"/>
+                    <circle cx="60" cy="48" r="2.2" fill="url(#gBD)" opacity="0.9"/>
+                    <circle cx="60" cy="39" r="1.8" fill="#00C3FF" opacity="0.85"/>
+                    <!-- PSF text below icon -->
+                    <text x="60" y="118" font-family="Outfit, sans-serif" font-weight="900"
+                          font-size="11" fill="white" text-anchor="middle" letter-spacing="1.5">PISCINAS</text>
+                    <text x="60" y="130" font-family="Outfit, sans-serif" font-weight="300"
+                          font-size="8.5" fill="url(#gBD)" text-anchor="middle" letter-spacing="2.5">SIN FRONTERAS</text>
+                    <!-- Wave accent under hex -->
+                    <path d="M24 86 Q36 81 48 86 Q60 91 72 86 Q84 81 96 86"
+                          fill="none" stroke="#009EDB" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+                </svg>
+            </div>
+            <div class="vl">Hex badge / embroidery</div>
+        </div>
+
+    </div><!-- /icon-row -->
+
+    <div class="card-desc">
+        All formats use the same scientific flask motif. The stacked layout works for vertical media. App icons and social badges use the flask alone, stripping back to the core mark. The hex badge is ideal for embroidery, stamps, and document watermarks.
+    </div>
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     MONOCHROME / ONE-COLOR VARIANTS
+════════════════════════════════════════════════════════════════ -->
+<p class="section-title">Monochrome — Print & Embossing</p>
+
+<div class="showcase">
+<div class="logo-card">
+    <div class="card-label">Accessibility</div>
+    <div class="card-name">Single-Color Variants</div>
+
+    <div class="variants">
+
+        <!-- White on dark -->
+        <div class="variant-panel">
+            <div class="panel-bg dark">
+                <svg width="340" height="90" viewBox="0 0 340 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34 6 L50 6 L50 28 L72 66 Q72 82 42 82 Q12 82 12 66 L34 28 Z"
+                          fill="rgba(255,255,255,0.08)" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    <line x1="31" y1="6" x2="53" y2="6" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+                    <line x1="50" y1="16" x2="54" y2="16" stroke="white" stroke-width="1.2" opacity="0.5"/>
+                    <line x1="50" y1="22" x2="53" y2="22" stroke="white" stroke-width="1" opacity="0.4"/>
+                    <path d="M15 60 Q28 53 42 60 Q56 67 69 60 L72 66 Q72 82 42 82 Q12 82 12 66 Z"
+                          fill="rgba(255,255,255,0.18)"/>
+                    <path d="M14 59 Q28 52 42 59 Q56 66 70 59"
+                          fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+                    <ellipse cx="42" cy="40" rx="38" ry="12" fill="none" stroke="white"
+                             stroke-width="0.9" opacity="0.3" transform="rotate(35 42 40)"/>
+                    <ellipse cx="42" cy="40" rx="38" ry="12" fill="none" stroke="white"
+                             stroke-width="0.9" opacity="0.3" transform="rotate(-35 42 40)"/>
+                    <circle cx="42" cy="40" r="3" fill="white" opacity="0.9"/>
+                    <circle cx="42" cy="28" r="2.4" fill="white" opacity="0.8"/>
+                    <circle cx="76" cy="47" r="2.2" fill="white" opacity="0.75"/>
+                    <circle cx="8"  cy="33" r="2.2" fill="white" opacity="0.75"/>
+                    <text x="96" y="40" font-family="Outfit, sans-serif" font-weight="900"
+                          font-size="30" fill="white" letter-spacing="-0.8">PISCINAS</text>
+                    <text x="98" y="64" font-family="Outfit, sans-serif" font-weight="300"
+                          font-size="17" fill="white" opacity="0.75" letter-spacing="4">sin fronteras</text>
+                    <line x1="96" y1="71" x2="328" y2="71" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                    <text x="98" y="85" font-family="Inter, sans-serif" font-size="8.5"
+                          fill="rgba(255,255,255,0.38)" letter-spacing="1.5">by THE POOL SCIENTIST</text>
+                </svg>
+            </div>
+            <div class="vl">White on dark</div>
+        </div>
+
+        <!-- Cerulean on white -->
+        <div class="variant-panel">
+            <div class="panel-bg white">
+                <svg width="340" height="90" viewBox="0 0 340 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34 6 L50 6 L50 28 L72 66 Q72 82 42 82 Q12 82 12 66 L34 28 Z"
+                          fill="rgba(0,158,219,0.07)" stroke="#009EDB" stroke-width="2" stroke-linejoin="round"/>
+                    <line x1="31" y1="6" x2="53" y2="6" stroke="#009EDB" stroke-width="2.8" stroke-linecap="round"/>
+                    <line x1="50" y1="16" x2="54" y2="16" stroke="#009EDB" stroke-width="1.2" opacity="0.5"/>
+                    <line x1="50" y1="22" x2="53" y2="22" stroke="#009EDB" stroke-width="1" opacity="0.4"/>
+                    <path d="M15 60 Q28 53 42 60 Q56 67 69 60 L72 66 Q72 82 42 82 Q12 82 12 66 Z"
+                          fill="#009EDB" opacity="0.55"/>
+                    <path d="M14 59 Q28 52 42 59 Q56 66 70 59"
+                          fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.65"/>
+                    <ellipse cx="42" cy="40" rx="38" ry="12" fill="none" stroke="#009EDB"
+                             stroke-width="0.9" opacity="0.3" transform="rotate(35 42 40)"/>
+                    <ellipse cx="42" cy="40" rx="38" ry="12" fill="none" stroke="#009EDB"
+                             stroke-width="0.9" opacity="0.3" transform="rotate(-35 42 40)"/>
+                    <circle cx="42" cy="40" r="3" fill="#009EDB" opacity="0.9"/>
+                    <circle cx="42" cy="28" r="2.4" fill="#009EDB" opacity="0.8"/>
+                    <circle cx="76" cy="47" r="2.2" fill="#009EDB" opacity="0.75"/>
+                    <circle cx="8"  cy="33" r="2.2" fill="#009EDB" opacity="0.75"/>
+                    <text x="96" y="40" font-family="Outfit, sans-serif" font-weight="900"
+                          font-size="30" fill="#0f172a" letter-spacing="-0.8">PISCINAS</text>
+                    <text x="98" y="64" font-family="Outfit, sans-serif" font-weight="300"
+                          font-size="17" fill="#009EDB" letter-spacing="4">sin fronteras</text>
+                    <line x1="96" y1="71" x2="328" y2="71" stroke="rgba(0,158,219,0.2)" stroke-width="1"/>
+                    <text x="98" y="85" font-family="Inter, sans-serif" font-size="8.5"
+                          fill="#94a3b8" letter-spacing="1.5">by THE POOL SCIENTIST</text>
+                </svg>
+            </div>
+            <div class="vl dark-text">TPS Cerulean on white</div>
+        </div>
+
+    </div>
+
+    <div class="card-desc">
+        Monochrome variants ensure the logo works for print, embossing, merchandise, and accessibility use cases. The wordmark and sub-brand remain legible at reduced sizes.
+    </div>
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     DESIGN RATIONALE
+════════════════════════════════════════════════════════════════ -->
+<p class="section-title">Design Rationale</p>
+
+<div class="showcase">
+<div class="logo-card" style="align-items:flex-start; max-width:900px; margin:0 auto;">
+    <div class="card-label">Why it works</div>
+    <div class="card-name" style="text-align:left;">Scientific Flask × Pool Waves</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; width:100%;">
+        <div>
+            <p style="font-size:.78rem; font-weight:600; color:var(--primary); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.4rem;">Flask icon</p>
+            <p style="font-size:.83rem; color:var(--muted); line-height:1.65;">The Erlenmeyer flask is the universal shorthand for science and expertise — directly reinforcing the "Scientist" in The Pool Scientist. Its open neck and expanding body visualize "sin fronteras" (no limits, no borders).</p>
+        </div>
+        <div>
+            <p style="font-size:.78rem; font-weight:600; color:var(--primary); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.4rem;">Pool waves inside</p>
+            <p style="font-size:.83rem; color:var(--muted); line-height:1.65;">Water waves filling the flask's base ground the mark unmistakably in the pool industry, while the blue gradient echoes the TPS cerulean (#009EDB) — unifying both brands at first glance.</p>
+        </div>
+        <div>
+            <p style="font-size:.78rem; font-weight:600; color:var(--primary); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.4rem;">Atom orbit rings</p>
+            <p style="font-size:.83rem; color:var(--muted); line-height:1.65;">Electron orbits encircling the flask reinforce the scientific/educational DNA and add a sense of energy and motion. They also subtly echo the "fronteras" idea: orbits have no borders — they loop forever.</p>
+        </div>
+        <div>
+            <p style="font-size:.78rem; font-weight:600; color:var(--primary); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.4rem;">Typography</p>
+            <p style="font-size:.83rem; color:var(--muted); line-height:1.65;"><strong style="color:var(--text);">Outfit 900</strong> for "PISCINAS" — geometric and bold, matching The Pool Scientist's authority. <strong style="color:var(--text);">Outfit 300</strong> italic-weight spacing on "sin fronteras" adds contrast and elegance. "by THE POOL SCIENTIST" ties the sub-brand visually.</p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<footer style="text-align:center; margin-top:4rem; color:#334155; font-size:.78rem; letter-spacing:.05em;">
+    Piscinas Sin Fronteras · Logo System · Aligned with The Pool Scientist · TPS Color Palette
+</footer>
+
+</body>
+</html>

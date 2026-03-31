@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSF — Email Newsletter Template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #e8edf3;
+      font-family: 'Inter', sans-serif;
+      padding: 40px 20px;
+    }
+    .preview-label {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 32px;
+    }
+    /* Email wrapper */
+    .email {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    /* ─── Header ─── */
+    .email-header {
+      background: linear-gradient(135deg, #0a1628 0%, #003a6e 65%, #005a96 100%);
+      padding: 36px 40px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .email-header .orb {
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, #009EDB44, transparent 70%);
+      border-radius: 50%;
+    }
+    .email-header .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      position: relative; z-index: 2;
+    }
+    .email-header .logo-dot {
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, #009EDB, #00C3FF);
+      border-radius: 50%;
+    }
+    .email-header .logo-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .email-header .badge {
+      display: inline-block;
+      background: rgba(0,195,255,0.2);
+      border: 1px solid rgba(0,195,255,0.4);
+      color: #00C3FF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      position: relative; z-index: 2;
+      display: inline-block;
+    }
+    .email-header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      position: relative; z-index: 2;
+    }
+    .email-header h1 span {
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .email-header p {
+      color: #a0c4e8;
+      font-size: 14px;
+      line-height: 1.65;
+      position: relative; z-index: 2;
+    }
+
+    /* Accent bar */
+    .accent-bar {
+      height: 5px;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+    }
+
+    /* ─── Body ─── */
+    .email-body {
+      padding: 36px 40px;
+    }
+
+    .greeting {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .greeting strong { color: #0a1628; }
+
+    /* Section heading */
+    .s-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #009EDB;
+      margin-bottom: 16px;
+    }
+
+    /* Program cards */
+    .program-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .prog-card {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 20px;
+      border-radius: 12px;
+      border: 1.5px solid #e8f4fb;
+      background: #f7fcff;
+      text-decoration: none;
+    }
+    .prog-card .p-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #009EDB22, #00C3FF22);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .prog-card .p-info h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: #0a1628;
+      margin-bottom: 3px;
+    }
+    .prog-card .p-info p {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.45;
+    }
+    .prog-card .arrow {
+      margin-left: auto;
+      color: #009EDB;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .divider { height: 1px; background: #eef2f6; margin: 28px 0; }
+
+    /* Highlight quote */
+    .highlight-box {
+      background: linear-gradient(135deg, #009EDB0e, #00C3FF0e);
+      border-left: 4px solid #009EDB;
+      border-radius: 0 12px 12px 0;
+      padding: 20px 22px;
+      margin-bottom: 28px;
+    }
+    .highlight-box p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a1628;
+      line-height: 1.5;
+    }
+    .highlight-box .attr {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #009EDB;
+      margin-top: 8px;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e0edf7;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 20px 10px;
+      background: #fff;
+      border-right: 1px solid #e0edf7;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item .num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-item .desc {
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* Primary CTA button */
+    .btn-primary {
+      display: block;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      color: #fff;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 16px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-bottom: 32px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Social links */
+    .social-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .social-pill {
+      background: #f0f4f8;
+      color: #555;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    /* ─── Footer ─── */
+    .email-footer {
+      background: #0a1628;
+      padding: 28px 40px;
+      text-align: center;
+    }
+    .email-footer .footer-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .email-footer .footer-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 14px;
+    }
+    .email-footer .footer-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .email-footer .footer-links a {
+      font-size: 11px;
+      color: rgba(0,195,255,0.7);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-label">Email Newsletter Template</div>
+
+  <div class="email">
+
+    <!-- Header -->
+    <div class="email-header">
+      <div class="orb"></div>
+      <div class="logo-row">
+        <div class="logo-dot"></div>
+        <div class="logo-name">Piscinas Sin Fronteras</div>
+      </div>
+      <div class="badge">Anuncio Oficial</div>
+      <h1>Ya estamos aquí.<br /><span>Capacitación en español.</span></h1>
+      <p>La plataforma líder de educación de piscinas en español acaba de abrir sus puertas para profesionales Latinos como tú.</p>
+    </div>
+
+    <div class="accent-bar"></div>
+
+    <!-- Body -->
+    <div class="email-body">
+
+      <p class="greeting">
+        ¡Hola, <strong>[Nombre]</strong>! 👋<br /><br />
+        Sabemos que como profesional Latino en la industria de piscinas, has enfrentado la barrera del idioma al buscar certificaciones de clase mundial. Eso cambia hoy.
+      </p>
+
+      <div class="s-heading">Nuestros Programas</div>
+
+      <div class="program-cards">
+        <div class="prog-card">
+          <div class="p-icon">🏆</div>
+          <div class="p-info">
+            <h3>CPO® — Certified Pool & Spa Operator</h3>
+            <p>La credencial más reconocida. 100% en español. Validez de 5 años.</p>
+          </div>
+          <div class="arrow">→</div>
+        </div>
+        <div class="prog-card">
+          <div class="p-icon">🔍</div>
+          <div class="p-info">
+            <h3>CPI — Certified Pool Inspector</h3>
+            <p>Especialización en inspección profesional con estándares internacionales.</p>
+          </div>
+          <div class="arrow">→</div>
+        </div>
+        <div class="prog-card">
+          <div class="p-icon">🎓</div>
+          <div class="p-info">
+            <h3>Academia PSF — <span style="color:#009EDB">Nuevo</span></h3>
+            <p>Cursos semanales, comunidad privada y recursos exclusivos para miembros.</p>
+          </div>
+          <div class="arrow">→</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="s-heading">¿Por qué importa?</div>
+
+      <div class="highlight-box">
+        <p>"Cientos de miles de profesionales Latinos trabajan en la industria de piscinas en EE.UU. y Latinoamérica sin acceso a certificaciones en su propio idioma. Eso no es justo — y lo vamos a cambiar."</p>
+        <div class="attr">— Equipo Piscinas Sin Fronteras</div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="num">100%</div>
+          <div class="desc">En Español</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">3</div>
+          <div class="desc">Programas Clave</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">∞</div>
+          <div class="desc">Potencial</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a href="https://piscinassinfronteras.com" class="btn-primary">
+        Explorar Programas → piscinassinfronteras.com
+      </a>
+
+      <!-- Social -->
+      <div class="social-row">
+        <a href="#" class="social-pill">📘 Facebook</a>
+        <a href="#" class="social-pill">📸 Instagram</a>
+        <a href="#" class="social-pill">💼 LinkedIn</a>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <div class="footer-brand">Piscinas Sin Fronteras</div>
+      <div class="footer-sub">© 2026 · info@piscinassinfronteras.com</div>
+      <div class="footer-links">
+        <a href="#">Desuscribirse</a>
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Ver en navegador</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

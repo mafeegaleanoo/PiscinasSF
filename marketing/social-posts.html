@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSF — Social Media Posts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0f1117;
+      font-family: 'Inter', sans-serif;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+
+    h1.section-label {
+      color: #888;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* ─── Post wrapper ─── */
+    .post-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* ─── Square 1:1 post ─── */
+    .post {
+      width: 540px;
+      height: 540px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    /* ─── Story 9:16 ─── */
+    .story {
+      width: 320px;
+      height: 568px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    /* ─── POST 1: CPO Hero ─── */
+    .post-1 {
+      background: linear-gradient(135deg, #0a1628 0%, #0d2240 50%, #003a6e 100%);
+    }
+    .post-1 .bg-orb {
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, #009EDB55 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .post-1 .bg-orb-2 {
+      position: absolute;
+      bottom: 60px; left: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, #00C3FF33 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .post-1 .content {
+      position: relative;
+      z-index: 2;
+      padding: 40px;
+    }
+    .post-1 .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+    }
+    .post-1 h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .post-1 h2 span {
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-1 p {
+      color: #a0c4e8;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 380px;
+    }
+    .post-1 .cta {
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      display: inline-block;
+    }
+    .post-1 .logo-text {
+      position: absolute;
+      top: 28px; left: 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      z-index: 2;
+    }
+    .post-1 .logo-text span {
+      color: #00C3FF;
+    }
+    .post-1 .cert-badge {
+      position: absolute;
+      top: 40px; right: 40px;
+      width: 110px; height: 110px;
+      background: rgba(255,255,255,0.06);
+      border: 2px solid rgba(0,195,255,0.3);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+      z-index: 2;
+    }
+    .post-1 .cert-badge .initials {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-1 .cert-badge .sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8px;
+      color: #a0c4e8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ─── POST 2: La barrera del idioma ─── */
+    .post-2 {
+      background: #ffffff;
+    }
+    .post-2 .top-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+    }
+    .post-2 .content {
+      position: relative;
+      padding: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .post-2 .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #009EDB;
+      margin-bottom: 20px;
+    }
+    .post-2 .quote {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: #0a1628;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .post-2 .quote em {
+      font-style: normal;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-2 .divider {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+    .post-2 .sub {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+      max-width: 380px;
+    }
+    .post-2 .brand-strip {
+      position: absolute;
+      bottom: 30px; right: 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #009EDB;
+      letter-spacing: 1px;
+    }
+    .post-2 .accent-circle {
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: linear-gradient(135deg, #009EDB18, #00C3FF18);
+      border-radius: 50%;
+    }
+
+    /* ─── POST 3: Stats post ─── */
+    .post-3 {
+      background: linear-gradient(160deg, #009EDB 0%, #00C3FF 100%);
+    }
+    .post-3 .content {
+      position: relative;
+      padding: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .post-3 .logo-top {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+    }
+    .post-3 .headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      text-align: center;
+    }
+    .post-3 .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 16px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .stat-card .label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 4px;
+    }
+    .post-3 .tag {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+
+    /* ─── STORY ─── */
+    .story-1 {
+      background: linear-gradient(170deg, #0a1628 0%, #003a6e 60%, #005a96 100%);
+    }
+    .story-1 .orb {
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, #009EDB44 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .story-1 .content {
+      position: relative;
+      z-index: 2;
+      padding: 36px 28px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .story-1 .top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .story-1 .dot {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, #009EDB, #00C3FF);
+      border-radius: 50%;
+    }
+    .story-1 .brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .story-1 .mid {
+      text-align: center;
+    }
+    .story-1 .icon-circle {
+      width: 100px; height: 100px;
+      background: linear-gradient(135deg, #009EDB33, #00C3FF33);
+      border: 2px solid rgba(0,195,255,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 40px;
+    }
+    .story-1 .mid h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .story-1 .mid h2 span {
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .story-1 .mid p {
+      color: #a0c4e8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .story-1 .bottom {
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      border-radius: 30px;
+      padding: 14px 20px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .row {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── FEED POSTS ─── -->
+  <h1 class="section-label">Instagram / Facebook — Feed Posts (1:1)</h1>
+
+  <div class="row">
+
+    <!-- POST 1 -->
+    <div class="post-group">
+      <div class="post post-1">
+        <div class="bg-orb"></div>
+        <div class="bg-orb-2"></div>
+
+        <div class="logo-text">PSF <span>·</span> Piscinas Sin Fronteras</div>
+
+        <div class="cert-badge">
+          <div class="initials">CPO</div>
+          <div class="sub">Certified</div>
+        </div>
+
+        <div class="content">
+          <div class="badge">Certificación Oficial</div>
+          <h2>Certifícate<br /><span>en Español.</span></h2>
+          <p>El CPO® es la credencial más reconocida del mundo en la industria de piscinas — ahora completamente en tu idioma.</p>
+          <div class="cta">Explorar el Programa →</div>
+        </div>
+      </div>
+      <h1 class="section-label">Post 1 — CPO Promo</h1>
+    </div>
+
+    <!-- POST 2 -->
+    <div class="post-group">
+      <div class="post post-2">
+        <div class="top-bar"></div>
+        <div class="accent-circle"></div>
+        <div class="content">
+          <div class="eyebrow">Piscinas Sin Fronteras</div>
+          <div class="quote">El idioma<br /><em>no debería</em><br />ser un límite.</div>
+          <div class="divider"></div>
+          <p class="sub">Miles de profesionales Latinos trabajan en la industria de piscinas sin acceso a certificaciones en español. Eso cambia hoy.</p>
+        </div>
+        <div class="brand-strip">piscinassinfronteras.com</div>
+      </div>
+      <h1 class="section-label">Post 2 — Mission Statement</h1>
+    </div>
+
+    <!-- POST 3 -->
+    <div class="post-group">
+      <div class="post post-3">
+        <div class="content">
+          <div class="logo-top">Piscinas Sin Fronteras</div>
+          <div class="headline">La educación de piscinas<br />en español que mereces</div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="number">100%</div>
+              <div class="label">En Español</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">3</div>
+              <div class="label">Programas Clave</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">CPO®</div>
+              <div class="label">Certificación Mundial</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">∞</div>
+              <div class="label">Potencial</div>
+            </div>
+          </div>
+          <div class="tag">#PiscinasSinFronteras &nbsp;·&nbsp; #CPO &nbsp;·&nbsp; #LatinosProfesionales</div>
+        </div>
+      </div>
+      <h1 class="section-label">Post 3 — Stats / Numbers</h1>
+    </div>
+
+  </div>
+
+  <!-- ─── STORIES ─── -->
+  <h1 class="section-label">Instagram Stories (9:16)</h1>
+
+  <div class="row">
+
+    <div class="post-group">
+      <div class="story story-1">
+        <div class="orb"></div>
+        <div class="content">
+          <div class="top">
+            <div class="dot"></div>
+            <div class="brand">Piscinas Sin Fronteras</div>
+          </div>
+          <div class="mid">
+            <div class="icon-circle">🏊</div>
+            <h2>Tu carrera,<br /><span>en tu idioma.</span></h2>
+            <p>Accede al CPO®, CPI y nuestra Academia exclusiva — todo 100% en español. Sin barreras.</p>
+          </div>
+          <div class="bottom">Únete ahora → piscinassinfronteras.com</div>
+        </div>
+      </div>
+      <h1 class="section-label">Story — Launch</h1>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piscinas Sin Fronteras — Logo Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #009EDB;
+            --secondary: #00C3FF;
+            --bg-dark: #0f172a;
+            --surface: #1e293b;
+            --border: rgba(255,255,255,0.1);
+            --text: #f8fafc;
+            --muted: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-dark);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            padding: 3rem 2rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p {
+            color: var(--muted);
+            margin-top: .5rem;
+            font-size: .95rem;
+        }
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem auto;
+            flex-wrap: wrap;
+        }
+        .swatch {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: .4rem .8rem;
+            font-size: .8rem;
+            color: var(--muted);
+        }
+        .swatch-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .logo-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            transition: border-color .3s, box-shadow .3s;
+        }
+        .logo-card:hover {
+            border-color: rgba(0,158,219,0.5);
+            box-shadow: 0 0 30px rgba(0,158,219,0.15);
+        }
+        .logo-card .label {
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .logo-card .option-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            text-align: center;
+        }
+        .logo-card .desc {
+            font-size: .82rem;
+            color: var(--muted);
+            text-align: center;
+            line-height: 1.5;
+        }
+        .logo-display {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+        }
+        .logo-display.light {
+            background: #f0f4f8;
+        }
+        .logo-display-row {
+            display: flex;
+            gap: 1.5rem;
+            width: 100%;
+            flex-direction: column;
+        }
+        .variant-label {
+            font-size: .7rem;
+            color: var(--muted);
+            text-align: center;
+            margin-top: .25rem;
+        }
+        .variant-label.dark-text { color: #64748b; }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Piscinas Sin Fronteras — Logo Options</h1>
+    <p>5 concepts using the TPS brand color palette</p>
+    <div class="color-palette">
+        <div class="swatch"><div class="swatch-dot" style="background:#009EDB"></div>#009EDB — TPS Cerulean Blue</div>
+        <div class="swatch"><div class="swatch-dot" style="background:#00C3FF"></div>#00C3FF — Accent Light Blue</div>
+        <div class="swatch"><div class="swatch-dot" style="background:#0f172a; border:1px solid #334155"></div>#0f172a — Dark Navy</div>
+        <div class="swatch"><div class="swatch-dot" style="background:#ffffff; border:1px solid #e2e8f0"></div>#FFFFFF — White</div>
+    </div>
+</header>
+
+<div class="grid">
+
+    <!-- OPTION 1: Globe Wave Wordmark -->
+    <div class="logo-card">
+        <div class="label">Option 1</div>
+        <div class="option-name">Globe Wave Wordmark</div>
+        <div class="logo-display">
+            <!-- Dark version -->
+            <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#009EDB"/>
+                        <stop offset="100%" stop-color="#00C3FF"/>
+                    </linearGradient>
+                    <clipPath id="c1">
+                        <circle cx="34" cy="34" r="28"/>
+                    </clipPath>
+                </defs>
+                <!-- Globe circle -->
+                <circle cx="34" cy="34" r="28" fill="none" stroke="url(#g1)" stroke-width="2.5"/>
+                <!-- Equator line -->
+                <line x1="6" y1="34" x2="62" y2="34" stroke="url(#g1)" stroke-width="1.2" opacity="0.6"/>
+                <!-- Meridian arc -->
+                <ellipse cx="34" cy="34" rx="12" ry="28" fill="none" stroke="url(#g1)" stroke-width="1.2" opacity="0.6"/>
+                <!-- Water waves inside globe (bottom half) -->
+                <path d="M10 44 Q17 39 24 44 Q31 49 38 44 Q45 39 52 44 Q57 49 58 48" stroke="#009EDB" stroke-width="2" fill="none" clip-path="url(#c1)" stroke-linecap="round"/>
+                <path d="M8 52 Q15 47 22 52 Q29 57 36 52 Q43 47 50 52 Q55 57 60 54" stroke="#00C3FF" stroke-width="2" fill="none" clip-path="url(#c1)" stroke-linecap="round" opacity="0.7"/>
+                <!-- Wordmark -->
+                <text x="74" y="27" font-family="Outfit, sans-serif" font-weight="900" font-size="18" fill="white" letter-spacing="-0.3">PISCINAS</text>
+                <text x="74" y="47" font-family="Outfit, sans-serif" font-weight="400" font-size="13" fill="url(#g1)" letter-spacing="2">SIN FRONTERAS</text>
+                <!-- Tagline -->
+                <text x="74" y="63" font-family="Inter, sans-serif" font-size="9" fill="#94a3b8" letter-spacing="0.5">Educación · Certificación · Comunidad</text>
+            </svg>
+            <div class="variant-label">Dark background</div>
+
+            <!-- Light version -->
+            <div class="logo-display light">
+                <svg width="260" height="80" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="g1b" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#009EDB"/>
+                            <stop offset="100%" stop-color="#00C3FF"/>
+                        </linearGradient>
+                        <clipPath id="c1b"><circle cx="34" cy="34" r="28"/></clipPath>
+                    </defs>
+                    <circle cx="34" cy="34" r="28" fill="none" stroke="url(#g1b)" stroke-width="2.5"/>
+                    <line x1="6" y1="34" x2="62" y2="34" stroke="url(#g1b)" stroke-width="1.2" opacity="0.5"/>
+                    <ellipse cx="34" cy="34" rx="12" ry="28" fill="none" stroke="url(#g1b)" stroke-width="1.2" opacity="0.5"/>
+                    <path d="M10 44 Q17 39 24 44 Q31 49 38 44 Q45 39 52 44 Q57 49 58 48" stroke="#009EDB" stroke-width="2" fill="none" clip-path="url(#c1b)" stroke-linecap="round"/>
+                    <path d="M8 52 Q15 47 22 52 Q29 57 36 52 Q43 47 50 52 Q55 57 60 54" stroke="#00C3FF" stroke-width="2" fill="none" clip-path="url(#c1b)" stroke-linecap="round" opacity="0.7"/>
+                    <text x="74" y="27" font-family="Outfit, sans-serif" font-weight="900" font-size="18" fill="#0f172a" letter-spacing="-0.3">PISCINAS</text>
+                    <text x="74" y="47" font-family="Outfit, sans-serif" font-weight="400" font-size="13" fill="url(#g1b)" letter-spacing="2">SIN FRONTERAS</text>
+                    <text x="74" y="63" font-family="Inter, sans-serif" font-size="9" fill="#64748b" letter-spacing="0.5">Educación · Certificación · Comunidad</text>
+                </svg>
+                <div class="variant-label dark-text">Light background</div>
+            </div>
+        </div>
+        <div class="desc">Classic globe icon with pool waves, paired with a clean two-line wordmark. Versatile and professional — works for all use cases.</div>
+    </div>
+
+    <!-- OPTION 2: Infinity Pool Icon -->
+    <div class="logo-card">
+        <div class="label">Option 2</div>
+        <div class="option-name">Infinity Pool</div>
+        <div class="logo-display">
+            <svg width="240" height="90" viewBox="0 0 240 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#009EDB"/>
+                        <stop offset="100%" stop-color="#00C3FF"/>
+                    </linearGradient>
+                </defs>
+                <!-- Infinity symbol styled with wave -->
+                <path d="M42 35 C42 24 52 18 62 18 C72 18 78 26 82 35 C86 44 92 52 102 52 C112 52 118 44 118 35 C118 26 112 18 102 18 C92 18 86 26 82 35 C78 44 72 52 62 52 C52 52 42 46 42 35Z"
+                      fill="none" stroke="url(#g2)" stroke-width="5" stroke-linecap="round"/>
+                <!-- Wave inside left loop -->
+                <path d="M50 35 Q55 31 60 35 Q65 39 70 35" stroke="#00C3FF" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+                <!-- Wave inside right loop -->
+                <path d="M90 35 Q95 31 100 35 Q105 39 110 35" stroke="#009EDB" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+
+                <!-- Text centered -->
+                <text x="80" y="72" font-family="Outfit, sans-serif" font-weight="900" font-size="15" fill="white" letter-spacing="1" text-anchor="middle">PISCINAS SIN FRONTERAS</text>
+                <text x="80" y="84" font-family="Inter, sans-serif" font-size="8" fill="#94a3b8" letter-spacing="2" text-anchor="middle">ACADEMIA & CERTIFICACIONES</text>
+            </svg>
+            <div class="variant-label">Dark background</div>
+        </div>
+        <div class="desc">The infinity symbol represents unlimited potential and "sin fronteras." Doubled as a pool lane overhead view. Bold and memorable.</div>
+    </div>
+
+    <!-- OPTION 3: PSF Monogram Badge -->
+    <div class="logo-card">
+        <div class="label">Option 3</div>
+        <div class="option-name">PSF Monogram Badge</div>
+        <div class="logo-display">
+            <svg width="200" height="110" viewBox="0 0 200 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#009EDB"/>
+                        <stop offset="100%" stop-color="#00C3FF"/>
+                    </linearGradient>
+                    <linearGradient id="g3b" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#009EDB" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#009EDB" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                <!-- Hexagon badge -->
+                <polygon points="100,8 136,28 136,68 100,88 64,68 64,28" fill="rgba(0,158,219,0.12)" stroke="url(#g3)" stroke-width="2"/>
+                <!-- PSF letters -->
+                <text x="100" y="56" font-family="Outfit, sans-serif" font-weight="900" font-size="28" fill="url(#g3)" text-anchor="middle" letter-spacing="-1">PSF</text>
+                <!-- Wave at bottom of hexagon -->
+                <path d="M72 72 Q80 67 88 72 Q96 77 100 72 Q104 67 112 72 Q120 77 128 72" stroke="#009EDB" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.7"/>
+                <!-- Name below -->
+                <text x="100" y="100" font-family="Outfit, sans-serif" font-weight="700" font-size="10" fill="white" text-anchor="middle" letter-spacing="2">PISCINAS SIN FRONTERAS</text>
+            </svg>
+            <div class="variant-label">Dark background</div>
+        </div>
+        <div class="desc">Compact hexagonal badge — great for embroidery, watermarks, and social media profile pictures. The PSF monogram is instantly recognizable.</div>
+    </div>
+
+    <!-- OPTION 4: Water Drop Globe -->
+    <div class="logo-card">
+        <div class="label">Option 4</div>
+        <div class="option-name">Water Drop Globe</div>
+        <div class="logo-display">
+            <svg width="260" height="90" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#00C3FF"/>
+                        <stop offset="100%" stop-color="#009EDB"/>
+                    </linearGradient>
+                    <linearGradient id="g4fill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#009EDB" stop-opacity="0.25"/>
+                        <stop offset="100%" stop-color="#009EDB" stop-opacity="0.05"/>
+                    </linearGradient>
+                    <clipPath id="dropClip">
+                        <path d="M38 10 Q14 35 14 50 A24 24 0 0 0 62 50 Q62 35 38 10Z"/>
+                    </clipPath>
+                </defs>
+                <!-- Water drop shape -->
+                <path d="M38 10 Q14 35 14 50 A24 24 0 0 0 62 50 Q62 35 38 10Z" fill="url(#g4fill)" stroke="url(#g4)" stroke-width="2.2"/>
+                <!-- Globe grid lines inside drop -->
+                <ellipse cx="38" cy="52" rx="16" ry="10" fill="none" stroke="#009EDB" stroke-width="1" opacity="0.5" clip-path="url(#dropClip)"/>
+                <line x1="14" y1="48" x2="62" y2="48" stroke="#009EDB" stroke-width="1" opacity="0.4" clip-path="url(#dropClip)"/>
+                <ellipse cx="38" cy="50" rx="8" ry="24" fill="none" stroke="#00C3FF" stroke-width="1" opacity="0.4" clip-path="url(#dropClip)"/>
+                <!-- Wave fill at bottom of drop -->
+                <path d="M18 56 Q25 51 32 56 Q36 59 38 56 Q41 51 46 56 Q52 61 58 58" stroke="#00C3FF" stroke-width="2" fill="none" clip-path="url(#dropClip)" stroke-linecap="round"/>
+
+                <!-- Wordmark -->
+                <text x="75" y="34" font-family="Outfit, sans-serif" font-weight="900" font-size="20" fill="white" letter-spacing="-0.5">PISCINAS</text>
+                <text x="75" y="56" font-family="Outfit, sans-serif" font-weight="900" font-size="20" fill="url(#g4)" letter-spacing="-0.5">SIN FRONTERAS</text>
+                <line x1="75" y1="63" x2="248" y2="63" stroke="rgba(0,158,219,0.3)" stroke-width="1"/>
+                <text x="75" y="75" font-family="Inter, sans-serif" font-size="9" fill="#94a3b8" letter-spacing="1">La plataforma de educación en español</text>
+            </svg>
+            <div class="variant-label">Dark background</div>
+        </div>
+        <div class="desc">A water drop containing a world map grid — elegantly fuses "water/pool" with "global/sin fronteras." Clean stacked wordmark adds professionalism.</div>
+    </div>
+
+    <!-- OPTION 5: Wave + Horizontal Rule (Modern/Minimal) -->
+    <div class="logo-card">
+        <div class="label">Option 5</div>
+        <div class="option-name">Modern Minimal Wordmark</div>
+        <div class="logo-display">
+            <svg width="270" height="75" viewBox="0 0 270 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="g5" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#009EDB"/>
+                        <stop offset="100%" stop-color="#00C3FF"/>
+                    </linearGradient>
+                </defs>
+                <!-- Left accent bars -->
+                <rect x="0" y="12" width="4" height="36" rx="2" fill="#009EDB"/>
+                <rect x="8" y="20" width="4" height="20" rx="2" fill="#00C3FF" opacity="0.7"/>
+
+                <!-- Main title -->
+                <text x="22" y="32" font-family="Outfit, sans-serif" font-weight="900" font-size="22" fill="white" letter-spacing="-0.5">PISCINAS</text>
+                <!-- Gradient rule -->
+                <rect x="22" y="37" width="192" height="2" rx="1" fill="url(#g5)"/>
+                <!-- Subtitle -->
+                <text x="22" y="54" font-family="Outfit, sans-serif" font-weight="300" font-size="15" fill="url(#g5)" letter-spacing="4.5">SIN FRONTERAS</text>
+                <!-- Wave accent below -->
+                <path d="M22 64 Q40 59 58 64 Q76 69 94 64 Q112 59 130 64 Q148 69 166 64 Q184 59 202 64 Q214 69 218 66" stroke="#009EDB" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+            <div class="variant-label">Dark background</div>
+
+            <div class="logo-display light">
+                <svg width="270" height="75" viewBox="0 0 270 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="g5b" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#009EDB"/>
+                            <stop offset="100%" stop-color="#00C3FF"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="0" y="12" width="4" height="36" rx="2" fill="#009EDB"/>
+                    <rect x="8" y="20" width="4" height="20" rx="2" fill="#00C3FF" opacity="0.7"/>
+                    <text x="22" y="32" font-family="Outfit, sans-serif" font-weight="900" font-size="22" fill="#0f172a" letter-spacing="-0.5">PISCINAS</text>
+                    <rect x="22" y="37" width="192" height="2" rx="1" fill="url(#g5b)"/>
+                    <text x="22" y="54" font-family="Outfit, sans-serif" font-weight="300" font-size="15" fill="url(#g5b)" letter-spacing="4.5">SIN FRONTERAS</text>
+                    <path d="M22 64 Q40 59 58 64 Q76 69 94 64 Q112 59 130 64 Q148 69 166 64 Q184 59 202 64 Q214 69 218 66" stroke="#009EDB" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+                </svg>
+                <div class="variant-label dark-text">Light background</div>
+            </div>
+        </div>
+        <div class="desc">Ultra-clean typographic wordmark with gradient rule and subtle wave accent. Works best on digital platforms, email headers, and print materials.</div>
+    </div>
+
+    <!-- Bonus: Stacked Icon Version -->
+    <div class="logo-card full-width">
+        <div class="label">Bonus — Stacked / App Icon</div>
+        <div class="option-name">Option 1 — Stacked & Icon Variants</div>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:center; width:100%;">
+
+            <!-- Stacked version -->
+            <div style="display:flex; flex-direction:column; align-items:center; gap:.5rem;">
+                <div class="logo-display" style="padding:1.5rem; min-width:160px;">
+                    <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="g6" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#009EDB"/>
+                                <stop offset="100%" stop-color="#00C3FF"/>
+                            </linearGradient>
+                            <clipPath id="c6"><circle cx="65" cy="50" r="38"/></clipPath>
+                        </defs>
+                        <circle cx="65" cy="50" r="38" fill="rgba(0,158,219,0.1)" stroke="url(#g6)" stroke-width="2.5"/>
+                        <line x1="27" y1="50" x2="103" y2="50" stroke="url(#g6)" stroke-width="1.2" opacity="0.5"/>
+                        <ellipse cx="65" cy="50" rx="16" ry="38" fill="none" stroke="url(#g6)" stroke-width="1.2" opacity="0.5"/>
+                        <path d="M32 62 Q42 56 52 62 Q60 68 65 62 Q70 56 78 62 Q88 68 98 64" stroke="#009EDB" stroke-width="2.5" fill="none" clip-path="url(#c6)" stroke-linecap="round"/>
+                        <path d="M30 72 Q40 66 50 72 Q60 78 65 72 Q70 66 80 72 Q90 78 100 74" stroke="#00C3FF" stroke-width="2" fill="none" clip-path="url(#c6)" stroke-linecap="round" opacity="0.6"/>
+                        <text x="65" y="105" font-family="Outfit, sans-serif" font-weight="900" font-size="14" fill="white" text-anchor="middle" letter-spacing="0.5">PISCINAS</text>
+                        <text x="65" y="121" font-family="Outfit, sans-serif" font-weight="400" font-size="10" fill="url(#g6)" text-anchor="middle" letter-spacing="2">SIN FRONTERAS</text>
+                    </svg>
+                </div>
+                <div class="variant-label">Stacked vertical</div>
+            </div>
+
+            <!-- App icon square -->
+            <div style="display:flex; flex-direction:column; align-items:center; gap:.5rem;">
+                <div class="logo-display" style="padding:1rem; min-width:120px;">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="g7" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#009EDB"/>
+                                <stop offset="100%" stop-color="#00C3FF"/>
+                            </linearGradient>
+                            <linearGradient id="gbg" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#0f172a"/>
+                                <stop offset="100%" stop-color="#1e293b"/>
+                            </linearGradient>
+                            <clipPath id="c7"><circle cx="50" cy="50" r="30"/></clipPath>
+                        </defs>
+                        <rect width="100" height="100" rx="24" fill="url(#gbg)"/>
+                        <circle cx="50" cy="50" r="30" fill="rgba(0,158,219,0.15)" stroke="url(#g7)" stroke-width="2"/>
+                        <line x1="20" y1="50" x2="80" y2="50" stroke="url(#g7)" stroke-width="1" opacity="0.5"/>
+                        <ellipse cx="50" cy="50" rx="13" ry="30" fill="none" stroke="url(#g7)" stroke-width="1" opacity="0.5"/>
+                        <path d="M24 61 Q32 55 40 61 Q46 67 50 61 Q54 55 60 61 Q68 67 76 63" stroke="#009EDB" stroke-width="2.5" fill="none" clip-path="url(#c7)" stroke-linecap="round"/>
+                        <path d="M22 70 Q30 64 38 70 Q44 76 50 70 Q56 64 62 70 Q70 76 78 72" stroke="#00C3FF" stroke-width="2" fill="none" clip-path="url(#c7)" stroke-linecap="round" opacity="0.55"/>
+                    </svg>
+                </div>
+                <div class="variant-label">App icon (rounded square)</div>
+            </div>
+
+            <!-- App icon circle -->
+            <div style="display:flex; flex-direction:column; align-items:center; gap:.5rem;">
+                <div class="logo-display" style="padding:1rem; min-width:120px;">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="g8" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#009EDB"/>
+                                <stop offset="100%" stop-color="#00C3FF"/>
+                            </linearGradient>
+                            <linearGradient id="gbg2" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#0f172a"/>
+                                <stop offset="100%" stop-color="#1e293b"/>
+                            </linearGradient>
+                            <clipPath id="c8"><circle cx="50" cy="50" r="30"/></clipPath>
+                        </defs>
+                        <circle cx="50" cy="50" r="50" fill="url(#gbg2)"/>
+                        <circle cx="50" cy="50" r="30" fill="rgba(0,158,219,0.15)" stroke="url(#g8)" stroke-width="2"/>
+                        <line x1="20" y1="50" x2="80" y2="50" stroke="url(#g8)" stroke-width="1" opacity="0.5"/>
+                        <ellipse cx="50" cy="50" rx="13" ry="30" fill="none" stroke="url(#g8)" stroke-width="1" opacity="0.5"/>
+                        <path d="M24 61 Q32 55 40 61 Q46 67 50 61 Q54 55 60 61 Q68 67 76 63" stroke="#009EDB" stroke-width="2.5" fill="none" clip-path="url(#c8)" stroke-linecap="round"/>
+                        <path d="M22 70 Q30 64 38 70 Q44 76 50 70 Q56 64 62 70 Q70 76 78 72" stroke="#00C3FF" stroke-width="2" fill="none" clip-path="url(#c8)" stroke-linecap="round" opacity="0.55"/>
+                    </svg>
+                </div>
+                <div class="variant-label">Social media profile</div>
+            </div>
+        </div>
+        <div class="desc" style="margin-top:.5rem;">All logos above are production-ready SVGs — scalable to any size with zero quality loss. Choose your favorite and I can refine it further.</div>
+    </div>
+
+</div>
+
+<footer style="text-align:center; margin-top:4rem; color:#475569; font-size:.8rem;">
+    Piscinas Sin Fronteras · Logo Concepts · TPS Color Palette
+</footer>
+
+</body>
+</html>

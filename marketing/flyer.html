@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>PSF — Flyer / Brochure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+      padding: 50px 20px;
+    }
+
+    h1.label {
+      color: #888;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* ─── LETTER FLYER (8.5×11 proportions) ─── */
+    .flyer {
+      width: 680px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .flyer-header {
+      background: linear-gradient(135deg, #0a1628 0%, #003a6e 60%, #005a96 100%);
+      padding: 48px 52px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .flyer-header .orb {
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, #009EDB44, transparent 70%);
+      border-radius: 50%;
+    }
+    .flyer-header .orb-2 {
+      position: absolute;
+      bottom: -100px; left: 20px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, #00C3FF22, transparent 70%);
+      border-radius: 50%;
+    }
+    .flyer-header .brand {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .flyer-header .brand-dot {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #009EDB, #00C3FF);
+      border-radius: 50%;
+    }
+    .flyer-header .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .flyer-header .brand-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 2px;
+      letter-spacing: 1px;
+    }
+    .flyer-header h1 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 46px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .flyer-header h1 span {
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .flyer-header p {
+      position: relative;
+      z-index: 2;
+      color: #a0c4e8;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 460px;
+    }
+
+    /* Divider wave */
+    .wave {
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      height: 6px;
+    }
+
+    /* Body */
+    .flyer-body {
+      padding: 44px 52px;
+      background: #fff;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #009EDB;
+      margin-bottom: 22px;
+    }
+
+    /* Programs */
+    .programs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .program-row {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px 22px;
+      border-radius: 14px;
+      border: 1.5px solid #e8f4fb;
+      background: #f7fcff;
+    }
+    .program-row:hover { border-color: #009EDB; }
+    .program-icon {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, #009EDB22, #00C3FF22);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .program-info h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: #0a1628;
+      margin-bottom: 4px;
+    }
+    .program-info .full-name {
+      font-size: 11px;
+      color: #009EDB;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .program-info p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.55;
+    }
+    .program-tag {
+      margin-left: auto;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      padding: 5px 12px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+    .program-tag.new {
+      background: linear-gradient(90deg, #3880C3, #61ACB3);
+    }
+
+    /* Separator */
+    .sep {
+      height: 1px;
+      background: #e8eef4;
+      margin: 0 0 36px;
+    }
+
+    /* Why us */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .why-card {
+      background: linear-gradient(135deg, #009EDB0d, #00C3FF0d);
+      border: 1px solid #009EDB22;
+      border-radius: 14px;
+      padding: 22px 18px;
+      text-align: center;
+    }
+    .why-card .w-icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    .why-card .w-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 6px;
+    }
+    .why-card .w-desc {
+      font-size: 11.5px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* CTA strip */
+    .cta-strip {
+      background: linear-gradient(135deg, #0a1628, #003a6e);
+      border-radius: 16px;
+      padding: 30px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .cta-strip .cta-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .cta-strip .cta-text p {
+      font-size: 13px;
+      color: #a0c4e8;
+    }
+    .cta-strip .cta-btn {
+      background: linear-gradient(90deg, #009EDB, #00C3FF);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 14px 28px;
+      border-radius: 30px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .flyer-footer {
+      background: #f7f9fb;
+      border-top: 1px solid #e2e8ef;
+      padding: 22px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .flyer-footer .contact {
+      display: flex;
+      gap: 28px;
+    }
+    .flyer-footer .contact span {
+      font-size: 12px;
+      color: #666;
+    }
+    .flyer-footer .contact span strong {
+      color: #0a1628;
+    }
+    .flyer-footer .copyright {
+      font-size: 11px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="label">Flyer / Brochure — Letter Size (Print &amp; Digital)</h1>
+
+  <div class="flyer">
+
+    <!-- Header -->
+    <div class="flyer-header">
+      <div class="orb"></div>
+      <div class="orb-2"></div>
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <div>
+          <div class="brand-name">Piscinas Sin Fronteras</div>
+          <div class="brand-sub">by The Pool Scientist</div>
+        </div>
+      </div>
+      <h1>Capacitación Profesional<br />de Piscinas <span>en Español.</span></h1>
+      <p>Las certificaciones más reconocidas del mundo al alcance de los profesionales Latinos — sin barreras de idioma.</p>
+    </div>
+
+    <div class="wave"></div>
+
+    <!-- Body -->
+    <div class="flyer-body">
+
+      <div class="section-title">Nuestros Programas</div>
+
+      <div class="programs">
+        <div class="program-row">
+          <div class="program-icon">🏆</div>
+          <div class="program-info">
+            <h3>CPO®</h3>
+            <div class="full-name">Certified Pool & Spa Operator</div>
+            <p>La credencial más reconocida en la industria. Traducida al 100% en español, incluye examen oficial con validez de 5 años.</p>
+          </div>
+          <div class="program-tag">Más Popular</div>
+        </div>
+        <div class="program-row">
+          <div class="program-icon">🔍</div>
+          <div class="program-info">
+            <h3>CPI</h3>
+            <div class="full-name">Certified Pool Inspector</div>
+            <p>Formación especializada en inspección profesional de piscinas y spas. Cumplimiento con estándares internacionales de seguridad.</p>
+          </div>
+          <div class="program-tag">Especialización</div>
+        </div>
+        <div class="program-row">
+          <div class="program-icon">🎓</div>
+          <div class="program-info">
+            <h3>Academia PSF</h3>
+            <div class="full-name">Academia Piscinas Sin Fronteras</div>
+            <p>Cursos semanales exclusivos, comunidad privada, recursos descargables y foros de networking profesional.</p>
+          </div>
+          <div class="program-tag new">Nuevo</div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="section-title">¿Por qué elegirnos?</div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="w-icon">🌎</div>
+          <div class="w-title">100% en Español</div>
+          <div class="w-desc">Todo el material, los exámenes y el soporte están completamente en español.</div>
+        </div>
+        <div class="why-card">
+          <div class="w-icon">🏅</div>
+          <div class="w-title">Certificación Mundial</div>
+          <div class="w-desc">Credenciales reconocidas internacionalmente para avanzar en tu carrera.</div>
+        </div>
+        <div class="why-card">
+          <div class="w-icon">👥</div>
+          <div class="w-title">Comunidad Latina</div>
+          <div class="w-desc">Red profesional exclusiva de técnicos y operadores Latinos en la industria.</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-strip">
+        <div class="cta-text">
+          <h3>¿Listo para certificarte?</h3>
+          <p>Visítanos en piscinassinfronteras.com o escríbenos a info@piscinassinfronteras.com</p>
+        </div>
+        <div class="cta-btn">Únete Ahora →</div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="flyer-footer">
+      <div class="contact">
+        <span><strong>Web:</strong> piscinassinfronteras.com</span>
+        <span><strong>Email:</strong> info@piscinassinfronteras.com</span>
+        <span><strong>IG:</strong> @piscinassinfronteras</span>
+      </div>
+      <div class="copyright">© 2026 Piscinas Sin Fronteras</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

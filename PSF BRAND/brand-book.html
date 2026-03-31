@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piscinas Sin Fronteras — Brand Book</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Base ───────────────────────────────────── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue:    #009EDB;
+            --cyan:    #00C3FF;
+            --navy:    #0f172a;
+            --slate:   #64748b;
+            --muted:   #94a3b8;
+            --border:  #e2e8f0;
+            --surface: #f8fafc;
+            --white:   #ffffff;
+            --grad:    linear-gradient(135deg, #009EDB, #00C3FF);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--surface);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* ── Cover ──────────────────────────────────────────── */
+        .cover {
+            background: var(--navy);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -20%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(0,158,219,.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(0,195,255,.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cover-logo {
+            margin-bottom: 3.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cover h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: white;
+            letter-spacing: -.02em;
+            position: relative;
+            z-index: 1;
+        }
+        .cover h1 span {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .cover p {
+            margin-top: .8rem;
+            color: var(--muted);
+            font-size: 1rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+        .cover-version {
+            margin-top: 4rem;
+            color: rgba(255,255,255,.25);
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Layout ─────────────────────────────────────────── */
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .page + .page {
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Section headers ────────────────────────────────── */
+        .section-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: .68rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: var(--navy);
+            letter-spacing: -.02em;
+            margin-bottom: 1.2rem;
+        }
+        .section-desc {
+            color: var(--slate);
+            font-size: 1rem;
+            max-width: 620px;
+            line-height: 1.75;
+        }
+        .divider {
+            width: 48px;
+            height: 3px;
+            background: var(--grad);
+            border-radius: 2px;
+            margin: 1.5rem 0 2.5rem;
+        }
+
+        /* ── Logo section ───────────────────────────────────── */
+        .logo-previews {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .logo-panel {
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .panel-white   { background: #ffffff; border: 1px solid var(--border); }
+        .panel-tint    { background: #f0f6ff; border: 1px solid #d6e4f5; }
+        .panel-navy    { background: var(--navy); }
+        .panel-blue    { background: var(--blue); }
+        .panel-label {
+            font-size: .68rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: .5rem;
+        }
+        .panel-navy .panel-label,
+        .panel-blue .panel-label { color: rgba(255,255,255,.45); }
+
+        /* logo on dark — invert wordmark colors */
+        .logo-dark text { fill: white !important; }
+
+        /* ── Clear space diagram ────────────────────────────── */
+        .clearspace-wrap {
+            margin-top: 2.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .clearspace-box {
+            position: relative;
+            display: inline-block;
+            padding: 1.5rem;
+            border: 1.5px dashed rgba(0,158,219,.4);
+            border-radius: 8px;
+        }
+        .clearspace-note {
+            font-size: .78rem;
+            color: var(--slate);
+            text-align: center;
+            max-width: 480px;
+        }
+
+        /* ── Don'ts grid ────────────────────────────────────── */
+        .donts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .dont-card {
+            border-radius: 14px;
+            background: white;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .dont-preview {
+            background: #fafbfc;
+            padding: 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            position: relative;
+        }
+        .dont-preview::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(239,68,68,.06);
+            pointer-events: none;
+        }
+        .dont-label {
+            padding: .9rem 1.2rem;
+            border-top: 1px solid var(--border);
+        }
+        .dont-label span {
+            display: inline-block;
+            background: #fef2f2;
+            color: #ef4444;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: .2rem .6rem;
+            border-radius: 4px;
+            margin-bottom: .35rem;
+        }
+        .dont-label p {
+            font-size: .78rem;
+            color: var(--slate);
+        }
+
+        /* ── Color palette ──────────────────────────────────── */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .swatch {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: white;
+        }
+        .swatch-color {
+            height: 110px;
+        }
+        .swatch-info {
+            padding: 1rem 1.1rem;
+        }
+        .swatch-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: .82rem;
+            color: var(--navy);
+            margin-bottom: .35rem;
+        }
+        .swatch-hex {
+            font-size: .78rem;
+            color: var(--slate);
+            font-family: 'Inter', monospace;
+            margin-bottom: .18rem;
+        }
+        .swatch-usage {
+            font-size: .72rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* Gradient swatch */
+        .swatch-grad .swatch-color {
+            background: linear-gradient(135deg, #009EDB, #00C3FF);
+        }
+
+        /* ── Typography ─────────────────────────────────────── */
+        .type-stack {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .type-row {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .type-specimen { flex: 1; min-width: 200px; }
+        .type-meta { flex-shrink: 0; text-align: right; }
+        .type-meta p {
+            font-size: .75rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+        .type-meta strong { color: var(--slate); }
+
+        /* ── Logo construction ──────────────────────────────── */
+        .construction-wrap {
+            margin-top: 2.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+        .construction-wrap p {
+            font-size: .85rem;
+            color: var(--slate);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* ── Sub-brand section ──────────────────────────────── */
+        .subbrand-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+        .subbrand-card {
+            flex: 1;
+            min-width: 260px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .subbrand-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: .8rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+        .subbrand-card p {
+            font-size: .82rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ── Usage table ────────────────────────────────────── */
+        .usage-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2.5rem;
+            font-size: .85rem;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .usage-table th {
+            background: var(--surface);
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--slate);
+            border-bottom: 1px solid var(--border);
+        }
+        .usage-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--slate);
+            vertical-align: top;
+        }
+        .usage-table tr:last-child td { border-bottom: none; }
+        .usage-table td:first-child {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .ok  { color: #16a34a; font-weight: 700; }
+        .no  { color: #ef4444; font-weight: 700; }
+
+        /* ── Footer ─────────────────────────────────────────── */
+        .brand-footer {
+            background: var(--navy);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .brand-footer p {
+            color: rgba(255,255,255,.35);
+            font-size: .75rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .logo-previews { grid-template-columns: 1fr; }
+            .type-row { flex-direction: column; }
+            .type-meta { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════════════ -->
+<div class="cover">
+    <div class="cover-logo">
+        <!-- Logo on dark background — wordmark in white -->
+        <svg width="400" height="100" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="cg1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#009EDB"/>
+                    <stop offset="100%" stop-color="#00C3FF"/>
+                </linearGradient>
+                <linearGradient id="cgW" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#009EDB" stop-opacity=".7"/>
+                    <stop offset="100%" stop-color="#0369a1" stop-opacity=".9"/>
+                </linearGradient>
+                <clipPath id="cfl">
+                    <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z"/>
+                </clipPath>
+            </defs>
+            <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z"
+                  fill="rgba(0,158,219,.12)" stroke="url(#cg1)" stroke-width="2.2" stroke-linejoin="round"/>
+            <line x1="35" y1="6" x2="61" y2="6" stroke="url(#cg1)" stroke-width="3" stroke-linecap="round"/>
+            <line x1="58" y1="18" x2="63" y2="18" stroke="#009EDB" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+            <line x1="58" y1="25" x2="61" y2="25" stroke="#009EDB" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+            <path d="M16 74 Q32 66 48 74 Q64 82 80 74 L84 78 Q84 96 48 96 Q12 96 12 78 Z" fill="url(#cgW)" clip-path="url(#cfl)"/>
+            <path d="M15 73 Q32 65 48 73 Q64 81 81 73" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".6" clip-path="url(#cfl)"/>
+            <path d="M14 84 Q32 76 48 84 Q64 92 82 84" fill="none" stroke="#00C3FF" stroke-width="1.3" stroke-linecap="round" opacity=".4" clip-path="url(#cfl)"/>
+            <circle cx="32" cy="88" r="2.4" fill="white" opacity=".3"/>
+            <circle cx="48" cy="91" r="1.7" fill="white" opacity=".25"/>
+            <circle cx="63" cy="86" r="2" fill="white" opacity=".22"/>
+            <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".3" transform="rotate(35 48 50)"/>
+            <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".3" transform="rotate(-35 48 50)"/>
+            <circle cx="48" cy="50" r="3.2" fill="#009EDB" opacity=".9"/>
+            <circle cx="48" cy="35" r="2.7" fill="#009EDB" opacity=".8"/>
+            <circle cx="91" cy="58" r="2.4" fill="#009EDB" opacity=".75"/>
+            <circle cx="5"  cy="42" r="2.4" fill="#009EDB" opacity=".75"/>
+            <!-- Wordmark — white on dark -->
+            <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900"
+                  font-size="36" fill="white" letter-spacing="-1">PISCINAS</text>
+            <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300"
+                  font-size="19" fill="url(#cg1)" letter-spacing="5">sin fronteras</text>
+            <line x1="110" y1="80" x2="392" y2="80" stroke="rgba(0,158,219,.3)" stroke-width="1"/>
+            <text x="112" y="95" font-family="'Montserrat',sans-serif" font-weight="400" font-size="9"
+                  fill="rgba(255,255,255,.45)" letter-spacing="1.6">by THE POOL SCIENTIST</text>
+        </svg>
+    </div>
+    <h1>Brand <span>Guidelines</span></h1>
+    <p>Identity · Color · Typography · Usage</p>
+    <div class="cover-version">Version 1.0 · 2025</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     1. LOGO
+══════════════════════════════════════════════════════ -->
+<div class="page">
+    <p class="section-label">01 — Logo</p>
+    <h2 class="section-title">The Primary Logo</h2>
+    <p class="section-desc">The <strong>Scientific Flask Wordmark</strong> is the primary logo of Piscinas Sin Fronteras. It pairs the Erlenmeyer flask icon — a universal symbol of scientific expertise referencing The Pool Scientist — with the Montserrat wordmark.</p>
+    <div class="divider"></div>
+
+    <div class="logo-previews">
+
+        <!-- White -->
+        <div class="logo-panel panel-white">
+            <svg width="340" height="85" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#009EDB"/>
+                        <stop offset="100%" stop-color="#00C3FF"/>
+                    </linearGradient>
+                    <linearGradient id="lgW" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#009EDB" stop-opacity=".6"/>
+                        <stop offset="100%" stop-color="#0369a1" stop-opacity=".85"/>
+                    </linearGradient>
+                    <clipPath id="lfl">
+                        <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z"/>
+                    </clipPath>
+                </defs>
+                <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(0,158,219,.07)" stroke="url(#lg1)" stroke-width="2.2" stroke-linejoin="round"/>
+                <line x1="35" y1="6" x2="61" y2="6" stroke="url(#lg1)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="58" y1="18" x2="63" y2="18" stroke="#009EDB" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+                <line x1="58" y1="25" x2="61" y2="25" stroke="#009EDB" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+                <path d="M16 74 Q32 66 48 74 Q64 82 80 74 L84 78 Q84 96 48 96 Q12 96 12 78 Z" fill="url(#lgW)" clip-path="url(#lfl)"/>
+                <path d="M15 73 Q32 65 48 73 Q64 81 81 73" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".6" clip-path="url(#lfl)"/>
+                <path d="M14 84 Q32 76 48 84 Q64 92 82 84" fill="none" stroke="#00C3FF" stroke-width="1.3" stroke-linecap="round" opacity=".4" clip-path="url(#lfl)"/>
+                <circle cx="32" cy="88" r="2.4" fill="white" opacity=".3"/>
+                <circle cx="48" cy="91" r="1.7" fill="white" opacity=".25"/>
+                <circle cx="63" cy="86" r="2" fill="white" opacity=".22"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".22" transform="rotate(35 48 50)"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".22" transform="rotate(-35 48 50)"/>
+                <circle cx="48" cy="50" r="3.2" fill="#009EDB" opacity=".85"/>
+                <circle cx="48" cy="35" r="2.7" fill="#009EDB" opacity=".8"/>
+                <circle cx="91" cy="58" r="2.4" fill="#009EDB" opacity=".75"/>
+                <circle cx="5"  cy="42" r="2.4" fill="#009EDB" opacity=".75"/>
+                <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="url(#lg1)" letter-spacing="-1">PISCINAS</text>
+                <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="url(#lg1)" letter-spacing="5">sin fronteras</text>
+                <line x1="110" y1="80" x2="392" y2="80" stroke="rgba(0,158,219,.18)" stroke-width="1"/>
+                <text x="112" y="95" font-family="'Montserrat',sans-serif" font-weight="400" font-size="9" fill="#009EDB" letter-spacing="1.6">by THE POOL SCIENTIST</text>
+            </svg>
+            <div class="panel-label">White background — Primary</div>
+        </div>
+
+        <!-- Light tint -->
+        <div class="logo-panel panel-tint">
+            <svg width="340" height="85" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#009EDB"/>
+                        <stop offset="100%" stop-color="#00C3FF"/>
+                    </linearGradient>
+                    <linearGradient id="lgW2" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#009EDB" stop-opacity=".55"/>
+                        <stop offset="100%" stop-color="#0369a1" stop-opacity=".8"/>
+                    </linearGradient>
+                    <clipPath id="lfl2">
+                        <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z"/>
+                    </clipPath>
+                </defs>
+                <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(0,158,219,.1)" stroke="url(#lg2)" stroke-width="2.2" stroke-linejoin="round"/>
+                <line x1="35" y1="6" x2="61" y2="6" stroke="url(#lg2)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="58" y1="18" x2="63" y2="18" stroke="#009EDB" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+                <line x1="58" y1="25" x2="61" y2="25" stroke="#009EDB" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+                <path d="M16 74 Q32 66 48 74 Q64 82 80 74 L84 78 Q84 96 48 96 Q12 96 12 78 Z" fill="url(#lgW2)" clip-path="url(#lfl2)"/>
+                <path d="M15 73 Q32 65 48 73 Q64 81 81 73" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".55" clip-path="url(#lfl2)"/>
+                <path d="M14 84 Q32 76 48 84 Q64 92 82 84" fill="none" stroke="#00C3FF" stroke-width="1.3" stroke-linecap="round" opacity=".38" clip-path="url(#lfl2)"/>
+                <circle cx="32" cy="88" r="2.4" fill="white" opacity=".28"/>
+                <circle cx="48" cy="91" r="1.7" fill="white" opacity=".22"/>
+                <circle cx="63" cy="86" r="2" fill="white" opacity=".2"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".2" transform="rotate(35 48 50)"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".2" transform="rotate(-35 48 50)"/>
+                <circle cx="48" cy="50" r="3.2" fill="#009EDB" opacity=".82"/>
+                <circle cx="48" cy="35" r="2.7" fill="#009EDB" opacity=".77"/>
+                <circle cx="91" cy="58" r="2.4" fill="#009EDB" opacity=".72"/>
+                <circle cx="5"  cy="42" r="2.4" fill="#009EDB" opacity=".72"/>
+                <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="url(#lg2)" letter-spacing="-1">PISCINAS</text>
+                <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="url(#lg2)" letter-spacing="5">sin fronteras</text>
+                <line x1="110" y1="80" x2="392" y2="80" stroke="rgba(0,158,219,.18)" stroke-width="1"/>
+                <text x="112" y="95" font-family="'Montserrat',sans-serif" font-weight="400" font-size="9" fill="#009EDB" letter-spacing="1.6">by THE POOL SCIENTIST</text>
+            </svg>
+            <div class="panel-label">Light blue tint</div>
+        </div>
+
+        <!-- Dark / Navy -->
+        <div class="logo-panel panel-navy">
+            <svg width="340" height="85" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="lg3" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#009EDB"/>
+                        <stop offset="100%" stop-color="#00C3FF"/>
+                    </linearGradient>
+                    <linearGradient id="lgW3" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#009EDB" stop-opacity=".7"/>
+                        <stop offset="100%" stop-color="#0369a1" stop-opacity=".9"/>
+                    </linearGradient>
+                    <clipPath id="lfl3">
+                        <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z"/>
+                    </clipPath>
+                </defs>
+                <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(0,158,219,.12)" stroke="url(#lg3)" stroke-width="2.2" stroke-linejoin="round"/>
+                <line x1="35" y1="6" x2="61" y2="6" stroke="url(#lg3)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="58" y1="18" x2="63" y2="18" stroke="#009EDB" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+                <line x1="58" y1="25" x2="61" y2="25" stroke="#009EDB" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+                <path d="M16 74 Q32 66 48 74 Q64 82 80 74 L84 78 Q84 96 48 96 Q12 96 12 78 Z" fill="url(#lgW3)" clip-path="url(#lfl3)"/>
+                <path d="M15 73 Q32 65 48 73 Q64 81 81 73" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".6" clip-path="url(#lfl3)"/>
+                <path d="M14 84 Q32 76 48 84 Q64 92 82 84" fill="none" stroke="#00C3FF" stroke-width="1.3" stroke-linecap="round" opacity=".4" clip-path="url(#lfl3)"/>
+                <circle cx="32" cy="88" r="2.4" fill="white" opacity=".3"/>
+                <circle cx="48" cy="91" r="1.7" fill="white" opacity=".25"/>
+                <circle cx="63" cy="86" r="2" fill="white" opacity=".22"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".3" transform="rotate(35 48 50)"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".3" transform="rotate(-35 48 50)"/>
+                <circle cx="48" cy="50" r="3.2" fill="#009EDB" opacity=".9"/>
+                <circle cx="48" cy="35" r="2.7" fill="#009EDB" opacity=".8"/>
+                <circle cx="91" cy="58" r="2.4" fill="#009EDB" opacity=".75"/>
+                <circle cx="5"  cy="42" r="2.4" fill="#009EDB" opacity=".75"/>
+                <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="white" letter-spacing="-1">PISCINAS</text>
+                <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="url(#lg3)" letter-spacing="5">sin fronteras</text>
+                <line x1="110" y1="80" x2="392" y2="80" stroke="rgba(0,158,219,.3)" stroke-width="1"/>
+                <text x="112" y="95" font-family="'Montserrat',sans-serif" font-weight="400" font-size="9" fill="rgba(255,255,255,.45)" letter-spacing="1.6">by THE POOL SCIENTIST</text>
+            </svg>
+            <div class="panel-label" style="color:rgba(255,255,255,.4)">Dark / Navy background</div>
+        </div>
+
+        <!-- Solid Blue -->
+        <div class="logo-panel panel-blue">
+            <svg width="340" height="85" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="lg4" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="rgba(255,255,255,.9)"/>
+                        <stop offset="100%" stop-color="rgba(255,255,255,.7)"/>
+                    </linearGradient>
+                    <linearGradient id="lgW4" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="rgba(255,255,255,.5)"/>
+                        <stop offset="100%" stop-color="rgba(255,255,255,.8)"/>
+                    </linearGradient>
+                    <clipPath id="lfl4">
+                        <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z"/>
+                    </clipPath>
+                </defs>
+                <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(255,255,255,.1)" stroke="url(#lg4)" stroke-width="2.2" stroke-linejoin="round"/>
+                <line x1="35" y1="6" x2="61" y2="6" stroke="white" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+                <line x1="58" y1="18" x2="63" y2="18" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+                <line x1="58" y1="25" x2="61" y2="25" stroke="white" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+                <path d="M16 74 Q32 66 48 74 Q64 82 80 74 L84 78 Q84 96 48 96 Q12 96 12 78 Z" fill="url(#lgW4)" clip-path="url(#lfl4)"/>
+                <path d="M15 73 Q32 65 48 73 Q64 81 81 73" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7" clip-path="url(#lfl4)"/>
+                <path d="M14 84 Q32 76 48 84 Q64 92 82 84" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round" clip-path="url(#lfl4)"/>
+                <circle cx="32" cy="88" r="2.4" fill="white" opacity=".4"/>
+                <circle cx="48" cy="91" r="1.7" fill="white" opacity=".35"/>
+                <circle cx="63" cy="86" r="2" fill="white" opacity=".3"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="white" stroke-width="1" opacity=".25" transform="rotate(35 48 50)"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="white" stroke-width="1" opacity=".25" transform="rotate(-35 48 50)"/>
+                <circle cx="48" cy="50" r="3.2" fill="white" opacity=".9"/>
+                <circle cx="48" cy="35" r="2.7" fill="white" opacity=".8"/>
+                <circle cx="91" cy="58" r="2.4" fill="white" opacity=".75"/>
+                <circle cx="5"  cy="42" r="2.4" fill="white" opacity=".75"/>
+                <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="white" letter-spacing="-1">PISCINAS</text>
+                <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="rgba(255,255,255,.85)" letter-spacing="5">sin fronteras</text>
+                <line x1="110" y1="80" x2="392" y2="80" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+                <text x="112" y="95" font-family="'Montserrat',sans-serif" font-weight="400" font-size="9" fill="rgba(255,255,255,.55)" letter-spacing="1.6">by THE POOL SCIENTIST</text>
+            </svg>
+            <div class="panel-label" style="color:rgba(255,255,255,.5)">Solid brand blue</div>
+        </div>
+
+    </div><!-- /logo-previews -->
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     2. CLEAR SPACE & MINIMUM SIZE
+══════════════════════════════════════════════════════ -->
+<div class="page">
+    <p class="section-label">02 — Clear Space & Minimum Size</p>
+    <h2 class="section-title">Give the Logo Room</h2>
+    <p class="section-desc">Always maintain a protected zone around the logo equal to the height of the "P" in PISCINAS (≈ 1× the cap-height unit). Never crowd the logo with text, images, or other graphic elements.</p>
+    <div class="divider"></div>
+
+    <div class="clearspace-wrap">
+        <div class="clearspace-box">
+            <svg width="340" height="85" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="cs1" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#009EDB"/>
+                        <stop offset="100%" stop-color="#00C3FF"/>
+                    </linearGradient>
+                    <linearGradient id="csW" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#009EDB" stop-opacity=".6"/>
+                        <stop offset="100%" stop-color="#0369a1" stop-opacity=".85"/>
+                    </linearGradient>
+                    <clipPath id="csfl">
+                        <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z"/>
+                    </clipPath>
+                </defs>
+                <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(0,158,219,.07)" stroke="url(#cs1)" stroke-width="2.2" stroke-linejoin="round"/>
+                <line x1="35" y1="6" x2="61" y2="6" stroke="url(#cs1)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="58" y1="18" x2="63" y2="18" stroke="#009EDB" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+                <line x1="58" y1="25" x2="61" y2="25" stroke="#009EDB" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+                <path d="M16 74 Q32 66 48 74 Q64 82 80 74 L84 78 Q84 96 48 96 Q12 96 12 78 Z" fill="url(#csW)" clip-path="url(#csfl)"/>
+                <path d="M15 73 Q32 65 48 73 Q64 81 81 73" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".6" clip-path="url(#csfl)"/>
+                <path d="M14 84 Q32 76 48 84 Q64 92 82 84" fill="none" stroke="#00C3FF" stroke-width="1.3" stroke-linecap="round" opacity=".4" clip-path="url(#csfl)"/>
+                <circle cx="32" cy="88" r="2.4" fill="white" opacity=".3"/>
+                <circle cx="48" cy="91" r="1.7" fill="white" opacity=".25"/>
+                <circle cx="63" cy="86" r="2" fill="white" opacity=".22"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".22" transform="rotate(35 48 50)"/>
+                <ellipse cx="48" cy="50" rx="46" ry="15" fill="none" stroke="#009EDB" stroke-width="1" opacity=".22" transform="rotate(-35 48 50)"/>
+                <circle cx="48" cy="50" r="3.2" fill="#009EDB" opacity=".85"/>
+                <circle cx="48" cy="35" r="2.7" fill="#009EDB" opacity=".8"/>
+                <circle cx="91" cy="58" r="2.4" fill="#009EDB" opacity=".75"/>
+                <circle cx="5"  cy="42" r="2.4" fill="#009EDB" opacity=".75"/>
+                <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="url(#cs1)" letter-spacing="-1">PISCINAS</text>
+                <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="url(#cs1)" letter-spacing="5">sin fronteras</text>
+                <line x1="110" y1="80" x2="392" y2="80" stroke="rgba(0,158,219,.18)" stroke-width="1"/>
+                <text x="112" y="95" font-family="'Montserrat',sans-serif" font-weight="400" font-size="9" fill="#009EDB" letter-spacing="1.6">by THE POOL SCIENTIST</text>
+            </svg>
+        </div>
+        <p class="clearspace-note">The dashed border represents the minimum clear space. No visual elements should enter this zone. The minimum recommended display size is <strong>200px wide</strong> for digital and <strong>40mm wide</strong> for print.</p>
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     3. LOGO DON'TS
+══════════════════════════════════════════════════════ -->
+<div class="page">
+    <p class="section-label">03 — Logo Don'ts</p>
+    <h2 class="section-title">What to Avoid</h2>
+    <p class="section-desc">To protect brand integrity, never alter the logo in the ways shown below.</p>
+    <div class="divider"></div>
+
+    <div class="donts-grid">
+
+        <div class="dont-card">
+            <div class="dont-preview">
+                <svg width="160" height="40" viewBox="0 0 400 100" fill="none" style="opacity:.5; filter:grayscale(1)">
+                    <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="#ccc" stroke="#999" stroke-width="2.2"/>
+                    <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="#999" letter-spacing="-1">PISCINAS</text>
+                    <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="#aaa" letter-spacing="5">sin fronteras</text>
+                </svg>
+            </div>
+            <div class="dont-label"><span>Don't</span><p>Desaturate or convert to grayscale without an approved mono version</p></div>
+        </div>
+
+        <div class="dont-card">
+            <div class="dont-preview">
+                <svg width="160" height="40" viewBox="0 0 400 100" fill="none" style="transform:rotate(-15deg) scale(.9)">
+                    <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(0,158,219,.07)" stroke="#009EDB" stroke-width="2.2"/>
+                    <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="#009EDB" letter-spacing="-1">PISCINAS</text>
+                    <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="#00C3FF" letter-spacing="5">sin fronteras</text>
+                </svg>
+            </div>
+            <div class="dont-label"><span>Don't</span><p>Rotate or tilt the logo</p></div>
+        </div>
+
+        <div class="dont-card">
+            <div class="dont-preview">
+                <svg width="200" height="40" viewBox="0 0 400 100" fill="none" style="transform:scaleX(1.35)">
+                    <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(0,158,219,.07)" stroke="#009EDB" stroke-width="2.2"/>
+                    <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="#009EDB" letter-spacing="-1">PISCINAS</text>
+                    <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="#00C3FF" letter-spacing="5">sin fronteras</text>
+                </svg>
+            </div>
+            <div class="dont-label"><span>Don't</span><p>Stretch or distort proportions</p></div>
+        </div>
+
+        <div class="dont-card">
+            <div class="dont-preview" style="background:#ff6b6b">
+                <svg width="160" height="40" viewBox="0 0 400 100" fill="none">
+                    <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(255,255,255,.15)" stroke="white" stroke-width="2.2"/>
+                    <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="white" letter-spacing="-1">PISCINAS</text>
+                    <text x="112" y="73" font-family="'Montserrat',sans-serif" font-weight="300" font-size="19" fill="white" letter-spacing="5">sin fronteras</text>
+                </svg>
+            </div>
+            <div class="dont-label"><span>Don't</span><p>Place on non-brand color backgrounds</p></div>
+        </div>
+
+        <div class="dont-card">
+            <div class="dont-preview">
+                <svg width="160" height="40" viewBox="0 0 400 100" fill="none">
+                    <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(0,158,219,.07)" stroke="#009EDB" stroke-width="2.2"/>
+                    <text x="110" y="46" font-family="Georgia,serif" font-weight="900" font-size="36" fill="#009EDB" letter-spacing="-1">PISCINAS</text>
+                    <text x="112" y="73" font-family="Georgia,serif" font-weight="300" font-size="19" fill="#00C3FF" letter-spacing="5">sin fronteras</text>
+                </svg>
+            </div>
+            <div class="dont-label"><span>Don't</span><p>Swap the Montserrat typeface for another font</p></div>
+        </div>
+
+        <div class="dont-card">
+            <div class="dont-preview">
+                <svg width="80" height="40" viewBox="0 0 400 100" fill="none">
+                    <path d="M38 6 L58 6 L58 32 L84 78 Q84 96 48 96 Q12 96 12 78 L38 32 Z" fill="rgba(0,158,219,.07)" stroke="#009EDB" stroke-width="2.2"/>
+                    <text x="110" y="46" font-family="'Montserrat',sans-serif" font-weight="900" font-size="36" fill="#009EDB" letter-spacing="-1">PISCINAS</text>
+                </svg>
+            </div>
+            <div class="dont-label"><span>Don't</span><p>Use the logo below the minimum size (200px / 40mm)</p></div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     4. COLOR PALETTE
+══════════════════════════════════════════════════════ -->
+<div class="page">
+    <p class="section-label">04 — Color</p>
+    <h2 class="section-title">Brand Color Palette</h2>
+    <p class="section-desc">The palette is anchored by Pool Blue and Aqua Cyan — representing water, science, and forward momentum. All digital colors are specified in HEX and RGB.</p>
+    <div class="divider"></div>
+
+    <div class="palette-grid">
+
+        <div class="swatch">
+            <div class="swatch-color" style="background:linear-gradient(135deg,#009EDB,#00C3FF)"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Brand Gradient</div>
+                <div class="swatch-hex">#009EDB → #00C3FF</div>
+                <div class="swatch-usage">Primary logo gradient. Use for key headlines, icons, and CTAs.</div>
+            </div>
+        </div>
+
+        <div class="swatch">
+            <div class="swatch-color" style="background:#009EDB"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Pool Blue</div>
+                <div class="swatch-hex">#009EDB · rgb(0,158,219)</div>
+                <div class="swatch-usage">Primary solid color. Buttons, links, borders, sub-brand text.</div>
+            </div>
+        </div>
+
+        <div class="swatch">
+            <div class="swatch-color" style="background:#00C3FF"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Aqua Cyan</div>
+                <div class="swatch-hex">#00C3FF · rgb(0,195,255)</div>
+                <div class="swatch-usage">Accent color. Highlights, hover states, secondary elements.</div>
+            </div>
+        </div>
+
+        <div class="swatch">
+            <div class="swatch-color" style="background:#0f172a"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Deep Navy</div>
+                <div class="swatch-hex">#0f172a · rgb(15,23,42)</div>
+                <div class="swatch-usage">Dark backgrounds, cover pages, dark-mode wordmark.</div>
+            </div>
+        </div>
+
+        <div class="swatch">
+            <div class="swatch-color" style="background:#f8fafc; border-bottom:1px solid #e2e8f0"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Cloud White</div>
+                <div class="swatch-hex">#f8fafc · rgb(248,250,252)</div>
+                <div class="swatch-usage">Page backgrounds, card surfaces, off-white areas.</div>
+            </div>
+        </div>
+
+        <div class="swatch">
+            <div class="swatch-color" style="background:#64748b"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Slate</div>
+                <div class="swatch-hex">#64748b · rgb(100,116,139)</div>
+                <div class="swatch-usage">Body text, captions, descriptive copy.</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     5. TYPOGRAPHY
+══════════════════════════════════════════════════════ -->
+<div class="page">
+    <p class="section-label">05 — Typography</p>
+    <h2 class="section-title">Montserrat Type System</h2>
+    <p class="section-desc"><strong>Montserrat</strong> is the exclusive typeface of Piscinas Sin Fronteras. Its geometric clarity conveys professionalism and precision — aligned with the scientific DNA of the brand.</p>
+    <div class="divider"></div>
+
+    <div class="type-stack">
+
+        <div class="type-row">
+            <div class="type-specimen">
+                <span style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:3rem; letter-spacing:-.03em; background:linear-gradient(135deg,#009EDB,#00C3FF); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1;">PISCINAS</span>
+            </div>
+            <div class="type-meta">
+                <p><strong>Logo Wordmark</strong></p>
+                <p>Montserrat Black 900</p>
+                <p>All caps · −1px tracking</p>
+            </div>
+        </div>
+
+        <div class="type-row">
+            <div class="type-specimen">
+                <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:1.5rem; letter-spacing:.3em; color:#009EDB;">sin fronteras</span>
+            </div>
+            <div class="type-meta">
+                <p><strong>Logo Sub-title</strong></p>
+                <p>Montserrat Light 300</p>
+                <p>Lowercase · +5px tracking</p>
+            </div>
+        </div>
+
+        <div class="type-row">
+            <div class="type-specimen">
+                <p style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:2.2rem; letter-spacing:-.02em; color:#0f172a;">Certificación CPO</p>
+            </div>
+            <div class="type-meta">
+                <p><strong>Page Headline</strong></p>
+                <p>Montserrat Black 900</p>
+                <p>Title case · −0.02em tracking</p>
+            </div>
+        </div>
+
+        <div class="type-row">
+            <div class="type-specimen">
+                <p style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.2rem; color:#0f172a;">Formación Profesional en Español</p>
+            </div>
+            <div class="type-meta">
+                <p><strong>Section Heading</strong></p>
+                <p>Montserrat Bold 700</p>
+            </div>
+        </div>
+
+        <div class="type-row">
+            <div class="type-specimen">
+                <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:1rem; color:#64748b; max-width:400px; line-height:1.7;">La plataforma líder en educación de piscinas en español. Eliminamos la barrera del idioma para profesionales Latinos.</p>
+            </div>
+            <div class="type-meta">
+                <p><strong>Body Text</strong></p>
+                <p>Montserrat Regular 400</p>
+                <p>1.7 line-height</p>
+            </div>
+        </div>
+
+        <div class="type-row">
+            <div class="type-specimen">
+                <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:#009EDB;">by THE POOL SCIENTIST</p>
+            </div>
+            <div class="type-meta">
+                <p><strong>Sub-brand / Label</strong></p>
+                <p>Montserrat Regular 400</p>
+                <p>All caps · +0.18em tracking</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     6. LOGO ANATOMY
+══════════════════════════════════════════════════════ -->
+<div class="page">
+    <p class="section-label">06 — Logo Anatomy</p>
+    <h2 class="section-title">Elements of the Mark</h2>
+    <p class="section-desc">The logo is composed of four distinct elements that work as a unified system.</p>
+    <div class="divider"></div>
+
+    <div class="construction-wrap">
+        <svg width="100%" viewBox="0 0 640 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="an1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#009EDB"/>
+                    <stop offset="100%" stop-color="#00C3FF"/>
+                </linearGradient>
+                <linearGradient id="anW" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#009EDB" stop-opacity=".6"/>
+                    <stop offset="100%" stop-color="#0369a1" stop-opacity=".85"/>
+                </linearGradient>
+                <clipPath id="anfl">
+                    <path d="M48 8 L74 8 L74 40 L106 96 Q106 118 60 118 Q14 118 14 96 L48 40 Z"/>
+                </clipPath>
+            </defs>
+
+            <!-- Flask -->
+            <path d="M48 8 L74 8 L74 40 L106 96 Q106 118 60 118 Q14 118 14 96 L48 40 Z" fill="rgba(0,158,219,.07)" stroke="url(#an1)" stroke-width="2.5" stroke-linejoin="round"/>
+            <line x1="44" y1="8" x2="78" y2="8" stroke="url(#an1)" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="74" y1="22" x2="80" y2="22" stroke="#009EDB" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+            <line x1="74" y1="31" x2="78" y2="31" stroke="#009EDB" stroke-width="1.2" stroke-linecap="round" opacity=".38"/>
+            <path d="M20 92 Q40 82 60 92 Q80 102 100 92 L106 96 Q106 118 60 118 Q14 118 14 96 Z" fill="url(#anW)" clip-path="url(#anfl)"/>
+            <path d="M19 91 Q40 81 60 91 Q80 101 101 91" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".6" clip-path="url(#anfl)"/>
+            <path d="M18 104 Q40 94 60 104 Q80 114 102 104" fill="none" stroke="#00C3FF" stroke-width="1.5" stroke-linecap="round" opacity=".4" clip-path="url(#anfl)"/>
+            <circle cx="40" cy="110" r="3" fill="white" opacity=".3"/>
+            <circle cx="60" cy="114" r="2" fill="white" opacity=".25"/>
+            <circle cx="79" cy="108" r="2.5" fill="white" opacity=".22"/>
+            <ellipse cx="60" cy="62" rx="57" ry="18" fill="none" stroke="#009EDB" stroke-width="1.2" opacity=".22" transform="rotate(35 60 62)"/>
+            <ellipse cx="60" cy="62" rx="57" ry="18" fill="none" stroke="#009EDB" stroke-width="1.2" opacity=".22" transform="rotate(-35 60 62)"/>
+            <circle cx="60" cy="62" r="4" fill="#009EDB" opacity=".85"/>
+            <circle cx="60" cy="44" r="3.3" fill="#009EDB" opacity=".8"/>
+            <circle cx="115" cy="71" r="3" fill="#009EDB" opacity=".75"/>
+            <circle cx="6" cy="53" r="3" fill="#009EDB" opacity=".75"/>
+
+            <!-- Annotation lines -->
+            <line x1="60" y1="8"  x2="60" y2="-4"  stroke="#009EDB" stroke-width=".8" stroke-dasharray="3,2" opacity=".5"/>
+            <text x="63" y="-2" font-family="'Inter',sans-serif" font-size="9" fill="#009EDB" opacity=".7">Flask neck cap</text>
+
+            <line x1="14" y1="100" x2="-2" y2="100" stroke="#009EDB" stroke-width=".8" stroke-dasharray="3,2" opacity=".5"/>
+            <text x="-2" y="96" font-family="'Inter',sans-serif" font-size="9" fill="#009EDB" opacity=".7" text-anchor="end">Pool waves</text>
+
+            <line x1="115" y1="71" x2="126" y2="71" stroke="#009EDB" stroke-width=".8" stroke-dasharray="3,2" opacity=".5"/>
+            <text x="128" y="74" font-family="'Inter',sans-serif" font-size="9" fill="#009EDB" opacity=".7">Atom orbit</text>
+
+            <!-- Wordmark -->
+            <text x="160" y="55" font-family="'Montserrat',sans-serif" font-weight="900" font-size="44" fill="url(#an1)" letter-spacing="-1">PISCINAS</text>
+            <text x="163" y="87" font-family="'Montserrat',sans-serif" font-weight="300" font-size="23" fill="url(#an1)" letter-spacing="6">sin fronteras</text>
+            <line x1="160" y1="96" x2="628" y2="96" stroke="rgba(0,158,219,.18)" stroke-width="1"/>
+            <text x="163" y="113" font-family="'Montserrat',sans-serif" font-weight="400" font-size="10.5" fill="#009EDB" letter-spacing="1.8">by THE POOL SCIENTIST</text>
+
+            <!-- Wordmark annotations -->
+            <line x1="315" y1="14" x2="315" y2="-4" stroke="#009EDB" stroke-width=".8" stroke-dasharray="3,2" opacity=".5"/>
+            <text x="318" y="-2" font-family="'Inter',sans-serif" font-size="9" fill="#009EDB" opacity=".7">Montserrat 900 — primary wordmark</text>
+
+            <line x1="380" y1="90" x2="380" y2="130" stroke="#009EDB" stroke-width=".8" stroke-dasharray="3,2" opacity=".5"/>
+            <text x="383" y="136" font-family="'Inter',sans-serif" font-size="9" fill="#009EDB" opacity=".7">Sub-brand · Montserrat 400</text>
+        </svg>
+
+        <p>The <strong>Erlenmeyer flask</strong> is the icon, always placed to the left of the wordmark. The <strong>atom orbit rings</strong> reinforce the scientific/educational identity. <strong>Pool waves</strong> fill the base of the flask, grounding it in the aquatics industry. The <strong>wordmark</strong> pairs Black-weight "PISCINAS" with Light-weight "sin fronteras" for elegant typographic contrast, followed by the sub-brand lockup "by THE POOL SCIENTIST."</p>
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     7. SUB-BRAND RELATIONSHIP
+══════════════════════════════════════════════════════ -->
+<div class="page">
+    <p class="section-label">07 — Sub-brand</p>
+    <h2 class="section-title">Relationship with The Pool Scientist</h2>
+    <p class="section-desc">Piscinas Sin Fronteras is a brand under The Pool Scientist (TPS). The sub-brand lockup "by THE POOL SCIENTIST" must always appear as part of the primary logo.</p>
+    <div class="divider"></div>
+
+    <div class="subbrand-row">
+        <div class="subbrand-card">
+            <h4>Sub-brand Lockup</h4>
+            <p>The text "by THE POOL SCIENTIST" appears beneath the divider rule in Montserrat Regular 400, all caps, with extended letter-spacing. It is rendered in Pool Blue (#009EDB) on light backgrounds and in 45% white on dark backgrounds.</p>
+        </div>
+        <div class="subbrand-card">
+            <h4>Always Visible</h4>
+            <p>The sub-brand text must never be removed, hidden, or resized independently. It scales proportionally with the full logo. It should be legible at all intended display sizes.</p>
+        </div>
+        <div class="subbrand-card">
+            <h4>Color Alignment</h4>
+            <p>The TPS color palette is #009EDB (Pool Blue) and #00C3FF (Aqua Cyan). Piscinas Sin Fronteras uses the same palette, reinforcing the visual connection between parent and sub-brand.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     8. USAGE GUIDELINES TABLE
+══════════════════════════════════════════════════════ -->
+<div class="page">
+    <p class="section-label">08 — Usage</p>
+    <h2 class="section-title">When &amp; How to Use</h2>
+    <p class="section-desc">Quick reference for approved logo and color usage across touchpoints.</p>
+    <div class="divider"></div>
+
+    <table class="usage-table">
+        <thead>
+            <tr>
+                <th>Context</th>
+                <th>Logo Version</th>
+                <th>Background</th>
+                <th>Approved</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Website header / navbar</td>
+                <td>Full wordmark · all-blue</td>
+                <td>White or #f8fafc</td>
+                <td class="ok">✓ Yes</td>
+            </tr>
+            <tr>
+                <td>Email header</td>
+                <td>Full wordmark · all-blue</td>
+                <td>White</td>
+                <td class="ok">✓ Yes</td>
+            </tr>
+            <tr>
+                <td>Dark hero section</td>
+                <td>Full wordmark · white + blue</td>
+                <td>#0f172a (Navy)</td>
+                <td class="ok">✓ Yes</td>
+            </tr>
+            <tr>
+                <td>Brand blue background</td>
+                <td>Full wordmark · all white</td>
+                <td>#009EDB</td>
+                <td class="ok">✓ Yes</td>
+            </tr>
+            <tr>
+                <td>Print (letterhead, certificates)</td>
+                <td>Full wordmark · all-blue</td>
+                <td>White paper</td>
+                <td class="ok">✓ Yes</td>
+            </tr>
+            <tr>
+                <td>Merchandise (dark apparel)</td>
+                <td>Full wordmark · white + blue</td>
+                <td>Dark fabric</td>
+                <td class="ok">✓ Yes</td>
+            </tr>
+            <tr>
+                <td>Non-brand color background</td>
+                <td>—</td>
+                <td>Red, yellow, green, etc.</td>
+                <td class="no">✗ No</td>
+            </tr>
+            <tr>
+                <td>Grayscale / monochrome</td>
+                <td>Contact brand team for mono version</td>
+                <td>—</td>
+                <td class="no">✗ Restricted</td>
+            </tr>
+            <tr>
+                <td>Icon only (no wordmark)</td>
+                <td>Not currently approved</td>
+                <td>—</td>
+                <td class="no">✗ No</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<div class="brand-footer">
+    <p>Piscinas Sin Fronteras · Brand Guidelines v1.0 · 2025 · by The Pool Scientist</p>
+</div>
+
+</body>
+</html>
