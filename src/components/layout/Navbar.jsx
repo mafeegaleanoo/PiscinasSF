@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../ui/Logo';
+import { useAuth } from '../../context/AuthContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +29,13 @@ const Navbar = () => {
           <Logo style={{ height: '48px', width: 'auto' }} />
         </Link>
         <ul className="nav-links">
-          <li><a href="#programas">Programas</a></li>
-          <li><a href="#mision">Nuestra Misión</a></li>
-          <li><a href="#comunidad" className="btn btn-primary btn-nav">Únete Ahora</a></li>
+          <li><Link to="/#programas">Programas</Link></li>
+          <li><Link to="/#mision">Nuestra Misión</Link></li>
+          {user ? (
+            <li><Link to="/dashboard" className="btn btn-primary btn-nav">Mi Panel</Link></li>
+          ) : (
+            <li><Link to="/login" className="btn btn-primary btn-nav">Iniciar Sesión</Link></li>
+          )}
         </ul>
         <div className="hamburger">
           <div className="bar"></div>
